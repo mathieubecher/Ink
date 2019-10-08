@@ -14,7 +14,7 @@ public class DeadPaper : MonoBehaviour
     void Start()
     {
         originposx = dead.transform.position.x - Camera.main.transform.position.x;
-        text.text = dead.text;
+        text.text = dead.text.Replace('#','\n');
         transform.position = new Vector3(0, -20, 0);
         transform.rotation = Quaternion.Euler(0,0,Random.value * 10 -5);
         Vector2 size = new Vector2(text.GetComponent<TextMeshPro>().GetComponent<Renderer>().bounds.size.x, text.GetComponent<TextMeshPro>().GetComponent<Renderer>().bounds.size.y);
