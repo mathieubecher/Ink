@@ -36,6 +36,8 @@ public class Controller : MonoBehaviour
             move.x = Input.GetAxis("Horizontal");
             move.y = Input.GetAxis("Vertical");
             move = move.normalized* speed;
+            GetComponent<Animator>().SetBool("Write", false);
+            GetComponent<Animator>().SetFloat("Move", move.magnitude);
             Vector3 campos = Camera.main.transform.parent.position;
             campos.x = transform.position.x + 2.5f;
             campos.y = walkheight;
@@ -45,7 +47,8 @@ public class Controller : MonoBehaviour
         }
         else
         {
-            if(progress < speedProgress) progress += Time.deltaTime;
+            GetComponent<Animator>().SetBool("Write", true);
+            if (progress < speedProgress) progress += Time.deltaTime;
             field.ActivateInputField();
 
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
