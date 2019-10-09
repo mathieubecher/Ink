@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -45,7 +46,8 @@ public class InitializeGame : MonoBehaviour
         {
             GameObject deadObject = Instantiate(dead,new Vector3(deadinfo.position, (Random.value * (maxy -miny)) + miny, 0), Quaternion.identity);
             (deadObject.GetComponent(typeof(Dead)) as Dead).text = deadinfo.text;
-            System.DateTime deaddate = System.DateTime.ParseExact(deadinfo.dead, "yyyy-MM-dd hh:mm:ss",null);
+            System.DateTime deaddate = System.DateTime.ParseExact(deadinfo.dead, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+           
 
             (deadObject.GetComponent(typeof(Dead)) as Dead).deadTime = (float)(System.DateTime.Now - deaddate).TotalMinutes;
         }

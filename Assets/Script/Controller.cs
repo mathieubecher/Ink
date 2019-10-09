@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class Controller : MonoBehaviour
 {
     [SerializeField] private float speed = 1.5f;
@@ -57,6 +59,11 @@ public class Controller : MonoBehaviour
             Camera.main.transform.parent.transform.position = campos;
             GetComponent<Rigidbody2D>().velocity = move;
             if (Input.GetKeyDown(KeyCode.Space)) write = true;
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+               StartCoroutine(Exit());
+            }
         }
         else
         {
@@ -88,7 +95,15 @@ public class Controller : MonoBehaviour
 
 
     }
-
+    
+    public IEnumerator Exit()
+    {
+        Debug.Log("coucou");
+        UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/SetDead.php?time=" + System.DateTime.Now + "&position=" + transform.position.x + "&text=" + text);
+        yield return www.SendWebRequest();
+        SceneManager.LoadScene(0);
+    }
+    
 
 
 }
