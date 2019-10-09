@@ -6,7 +6,7 @@ public class Dead : MonoBehaviour
 {
     private static Dead currentdead;
     private Collider2D cursor;
-    private float deadTime;
+    public float deadTime;
     public string text;
     public bool active = false;
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class Dead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        deadTime += Time.deltaTime;
+        deadTime += Time.deltaTime/(float)(60);
         if(cursor != null)
         {
             if (cursor.Distance(GetComponent<Collider2D>()).distance > 0)
