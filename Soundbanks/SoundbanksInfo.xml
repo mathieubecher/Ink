@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
+	<RootPaths>
+		<ProjectRoot>D:\Sessions\Ink\Art game - Ink\</ProjectRoot>
+		<SourceFilesRoot>D:\Sessions\Ink\Art game - Ink\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Sessions\Ink\Git\Soundbanks\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>D:\Sessions\Ink\Art game - Ink\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2228651116" Language="SFX">
+			<ObjectPath>\SoundBanks\Ink\Main_Soundbank</ObjectPath>
+			<ShortName>Main_Soundbank</ShortName>
+			<Path>Main_Soundbank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2363272052" Name="Ambiant_Day" ObjectPath="\Events\Default Work Unit\Ambiant_Day" DurationType="Infinite"/>
+				<Event Id="2385628198" Name="Footsteps" ObjectPath="\Events\Default Work Unit\Footsteps" DurationType="OneShot" DurationMin="1.006195" DurationMax="1.164685"/>
+				<Event Id="1101959602" Name="SFX_Bell" ObjectPath="\Events\Default Work Unit\SFX_Bell" DurationType="OneShot" DurationMin="0.572971" DurationMax="1.000000"/>
+				<Event Id="1281716197" Name="SFX_Cadavre" ObjectPath="\Events\Default Work Unit\SFX_Cadavre" DurationType="Infinite"/>
+				<Event Id="681822082" Name="SFX_Key" ObjectPath="\Events\Default Work Unit\SFX_Key" DurationType="OneShot" DurationMin="0.134354" DurationMax="0.291678"/>
+				<Event Id="480120917" Name="SFX_NoBack" ObjectPath="\Events\Default Work Unit\SFX_NoBack" DurationType="OneShot" DurationMin="0.977873" DurationMax="1.229194"/>
+				<Event Id="855119499" Name="SFX_NoInkLeft" ObjectPath="\Events\Default Work Unit\SFX_NoInkLeft" DurationType="OneShot" DurationMin="2.346103" DurationMax="2.519842"/>
+				<Event Id="831657605" Name="SFX_PaperAppears" ObjectPath="\Events\Default Work Unit\SFX_PaperAppears" DurationType="OneShot" DurationMin="0.579080" DurationMax="1.056675"/>
+				<Event Id="196682047" Name="SFX_PaperDisappears" ObjectPath="\Events\Default Work Unit\SFX_PaperDisappears" DurationType="OneShot" DurationMin="0.422941" DurationMax="0.627064"/>
+				<Event Id="3380952835" Name="SFX_PutAwayTypewriter" ObjectPath="\Events\Default Work Unit\SFX_PutAwayTypewriter" DurationType="OneShot" DurationMin="0.486498" DurationMax="0.659447"/>
+				<Event Id="4228261502" Name="SFX_Spool" ObjectPath="\Events\Default Work Unit\SFX_Spool" DurationType="OneShot" DurationMin="1.100000" DurationMax="1.100000"/>
+				<Event Id="4036892440" Name="SFX_TypeWriter" ObjectPath="\Events\Default Work Unit\SFX_TypeWriter" DurationType="OneShot" DurationMin="1.851378" DurationMax="2.070530"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="1313335" Language="SFX">
+					<ShortName>Footsteps\Gear\Cloth\FTS_Cloth_R_04.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\Cloth\FTS_Cloth_R_04_49718417.wem</Path>
+				</File>
+				<File Id="1758084" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_SpoolReload_03.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_SpoolReload_03_49718417.wem</Path>
+				</File>
+				<File Id="8844161" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_04.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_04_49718417.wem</Path>
+				</File>
+				<File Id="12312977" Language="SFX">
+					<ShortName>Ambiant\Day_Lp\Ambiant_Wind_High_Lp_V2.wav</ShortName>
+					<Path>SFX\Ambiant\Day_Lp\Ambiant_Wind_High_Lp_V2_B587EF35.wem</Path>
+				</File>
+				<File Id="27988107" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_04.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_04_49718417.wem</Path>
+				</File>
+				<File Id="41988714" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_03.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_03_CA648073.wem</Path>
+				</File>
+				<File Id="42693822" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_03.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_03_49718417.wem</Path>
+				</File>
+				<File Id="52325594" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_01.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_01_23D2B3B6.wem</Path>
+				</File>
+				<File Id="57002023" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_01.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_01_49718417.wem</Path>
+				</File>
+				<File Id="58771794" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_01.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_01_97A3022D.wem</Path>
+				</File>
+				<File Id="73434410" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_05.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_05_49718417.wem</Path>
+				</File>
+				<File Id="87521917" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Light_01.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Light_01_49718417.wem</Path>
+				</File>
+				<File Id="100835554" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_08.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_08_49718417.wem</Path>
+				</File>
+				<File Id="133000523" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_05.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_05_49718417.wem</Path>
+				</File>
+				<File Id="133528092" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_06.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_06_49718417.wem</Path>
+				</File>
+				<File Id="143882624" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Light\FTS_Mud_Light_R_05.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Light\FTS_Mud_Light_R_05_49718417.wem</Path>
+				</File>
+				<File Id="169572227" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_12.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_12_49718417.wem</Path>
+				</File>
+				<File Id="172981756" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_01.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_01_49718417.wem</Path>
+				</File>
+				<File Id="174212502" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_03.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_03_49718417.wem</Path>
+				</File>
+				<File Id="202903832" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Light\FTS_Mud_Light_L_03.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Light\FTS_Mud_Light_L_03_49718417.wem</Path>
+				</File>
+				<File Id="203254886" Language="SFX">
+					<ShortName>SFX_Cadavre\SFX_Cadavre_Flies_OS_03.wav</ShortName>
+					<Path>SFX\SFX_Cadavre\SFX_Cadavre_Flies_OS_03_49718417.wem</Path>
+				</File>
+				<File Id="212323933" Language="SFX">
+					<ShortName>Footsteps\Gear\Cloth\FTS_Cloth_L_03.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\Cloth\FTS_Cloth_L_03_49718417.wem</Path>
+				</File>
+				<File Id="221575832" Language="SFX">
+					<ShortName>SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_02.wav</ShortName>
+					<Path>SFX\SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_02_49718417.wem</Path>
+				</File>
+				<File Id="221704066" Language="SFX">
+					<ShortName>SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_02.wav</ShortName>
+					<Path>SFX\SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_02_D3FC7C02.wem</Path>
+				</File>
+				<File Id="230999369" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Bell\SFX_Typewriter_Bell_04.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Bell\SFX_Typewriter_Bell_04_49718417.wem</Path>
+				</File>
+				<File Id="233777268" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_04.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_04_49718417.wem</Path>
+				</File>
+				<File Id="243898040" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Vegetation\Ambiant_Forest_Vegetation_OS_02.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Vegetation\Ambiant_Forest_Vegetation_OS_02_49718417.wem</Path>
+				</File>
+				<File Id="247682100" Language="SFX">
+					<ShortName>SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_01.wav</ShortName>
+					<Path>SFX\SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_01_49718417.wem</Path>
+				</File>
+				<File Id="248242747" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_08.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_08_49718417.wem</Path>
+				</File>
+				<File Id="251075847" Language="SFX">
+					<ShortName>SFX_NoBack\SFX_NoBack_04.wav</ShortName>
+					<Path>SFX\SFX_NoBack\SFX_NoBack_04_8BE5D66C.wem</Path>
+				</File>
+				<File Id="265436611" Language="SFX">
+					<ShortName>Footsteps\Gear\Cloth\FTS_Cloth_L_02.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\Cloth\FTS_Cloth_L_02_49718417.wem</Path>
+				</File>
+				<File Id="278547314" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Light\FTS_Mud_Light_R_01.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Light\FTS_Mud_Light_R_01_49718417.wem</Path>
+				</File>
+				<File Id="283660083" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_01.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_01_49718417.wem</Path>
+				</File>
+				<File Id="289595214" Language="SFX">
+					<ShortName>SFX_NoBack\SFX_NoBack_01.wav</ShortName>
+					<Path>SFX\SFX_NoBack\SFX_NoBack_01_05F947C8.wem</Path>
+				</File>
+				<File Id="290230197" Language="SFX">
+					<ShortName>SFX_Cadavre\SFX_Cadavre_Flies_OS_04.wav</ShortName>
+					<Path>SFX\SFX_Cadavre\SFX_Cadavre_Flies_OS_04_4EED1F5F.wem</Path>
+				</File>
+				<File Id="296197943" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_05.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_05_49718417.wem</Path>
+				</File>
+				<File Id="309147093" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_01.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_01_49718417.wem</Path>
+				</File>
+				<File Id="310483013" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_01.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_01_49718417.wem</Path>
+				</File>
+				<File Id="313739062" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_13.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_13_49718417.wem</Path>
+				</File>
+				<File Id="317326265" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_03.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_03_49718417.wem</Path>
+				</File>
+				<File Id="318796113" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_10.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_10_49718417.wem</Path>
+				</File>
+				<File Id="319087906" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Bell\SFX_Typewriter_Bell_02.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Bell\SFX_Typewriter_Bell_02_49718417.wem</Path>
+				</File>
+				<File Id="330739352" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_09.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_09_49718417.wem</Path>
+				</File>
+				<File Id="354182022" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_01.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_01_49718417.wem</Path>
+				</File>
+				<File Id="366178850" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Bell\SFX_Typewriter_Bell_03.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Bell\SFX_Typewriter_Bell_03_49718417.wem</Path>
+				</File>
+				<File Id="370078548" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_01.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_01_49718417.wem</Path>
+				</File>
+				<File Id="387628062" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Vegetation\Ambiant_Forest_Vegetation_OS_05.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Vegetation\Ambiant_Forest_Vegetation_OS_05_49718417.wem</Path>
+				</File>
+				<File Id="392374192" Language="SFX">
+					<ShortName>Footsteps\Gear\Cloth\FTS_Cloth_L_01.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\Cloth\FTS_Cloth_L_01_49718417.wem</Path>
+				</File>
+				<File Id="419268440" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_05.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_05_49718417.wem</Path>
+				</File>
+				<File Id="419634281" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_02.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_02_49718417.wem</Path>
+				</File>
+				<File Id="420716180" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_03.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_03_49718417.wem</Path>
+				</File>
+				<File Id="421588980" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_06.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_06_49718417.wem</Path>
+				</File>
+				<File Id="428059081" Language="SFX">
+					<ShortName>SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_03.wav</ShortName>
+					<Path>SFX\SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_03_49718417.wem</Path>
+				</File>
+				<File Id="432320231" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_SpoolReload_01.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_SpoolReload_01_49718417.wem</Path>
+				</File>
+				<File Id="435978936" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_02.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_02_BD8A9833.wem</Path>
+				</File>
+				<File Id="441597960" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_05.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_05_A8414188.wem</Path>
+				</File>
+				<File Id="456748706" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_02.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_02_49718417.wem</Path>
+				</File>
+				<File Id="477417273" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_01.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_01_248C54A5.wem</Path>
+				</File>
+				<File Id="479368181" Language="SFX">
+					<ShortName>Ambiant\Day_Lp\Ambiant_Wind_Hiss_Lp.wav</ShortName>
+					<Path>SFX\Ambiant\Day_Lp\Ambiant_Wind_Hiss_Lp_B587EF35.wem</Path>
+				</File>
+				<File Id="494573694" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_02.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_02_49718417.wem</Path>
+				</File>
+				<File Id="502532248" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Bell\SFX_Typewriter_Bell_01.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Bell\SFX_Typewriter_Bell_01_49718417.wem</Path>
+				</File>
+				<File Id="511254445" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Light_04.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Light_04_49718417.wem</Path>
+				</File>
+				<File Id="513332369" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Light_06.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Light_06_49718417.wem</Path>
+				</File>
+				<File Id="518678761" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_03.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_03_12587007.wem</Path>
+				</File>
+				<File Id="521526232" Language="SFX">
+					<ShortName>SFX_NoBack\SFX_NoBack_02.wav</ShortName>
+					<Path>SFX\SFX_NoBack\SFX_NoBack_02_253F4FFB.wem</Path>
+				</File>
+				<File Id="531088981" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_02.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_02_49718417.wem</Path>
+				</File>
+				<File Id="532910793" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_02.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_02_49718417.wem</Path>
+				</File>
+				<File Id="534401448" Language="SFX">
+					<ShortName>SFX_Cadavre\SFX_Cadavre_Flies_OS_02.wav</ShortName>
+					<Path>SFX\SFX_Cadavre\SFX_Cadavre_Flies_OS_02_49718417.wem</Path>
+				</File>
+				<File Id="534435031" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Vegetation\Ambiant_Forest_Vegetation_OS_01.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Vegetation\Ambiant_Forest_Vegetation_OS_01_49718417.wem</Path>
+				</File>
+				<File Id="539961703" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Light\FTS_Mud_Light_R_04.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Light\FTS_Mud_Light_R_04_49718417.wem</Path>
+				</File>
+				<File Id="540464275" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_07.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_07_49718417.wem</Path>
+				</File>
+				<File Id="554436244" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_02.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_02_9966376F.wem</Path>
+				</File>
+				<File Id="557228443" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Light\FTS_Mud_Light_R_03.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Light\FTS_Mud_Light_R_03_49718417.wem</Path>
+				</File>
+				<File Id="571347215" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_04.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_04_49718417.wem</Path>
+				</File>
+				<File Id="585660668" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_06.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_06_49718417.wem</Path>
+				</File>
+				<File Id="607048233" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Light_03.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Light_03_49718417.wem</Path>
+				</File>
+				<File Id="612215985" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_05.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_05_49718417.wem</Path>
+				</File>
+				<File Id="613195922" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_06.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_06_49718417.wem</Path>
+				</File>
+				<File Id="614241335" Language="SFX">
+					<ShortName>SFX_NoBack\SFX_NoBack_03.wav</ShortName>
+					<Path>SFX\SFX_NoBack\SFX_NoBack_03_A230F5F9.wem</Path>
+				</File>
+				<File Id="617238335" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_04.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_04_49718417.wem</Path>
+				</File>
+				<File Id="626550121" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Insects\Ambiant_Forest_Inscect_OS_01.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Insects\Ambiant_Forest_Inscect_OS_01_49718417.wem</Path>
+				</File>
+				<File Id="641159533" Language="SFX">
+					<ShortName>Footsteps\Gear\Cloth\FTS_Cloth_R_01.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\Cloth\FTS_Cloth_R_01_49718417.wem</Path>
+				</File>
+				<File Id="649201782" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_05.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_05_49718417.wem</Path>
+				</File>
+				<File Id="650060410" Language="SFX">
+					<ShortName>Ambiant\Day_Lp\Ambiant_Wind_Leafs_Lp.wav</ShortName>
+					<Path>SFX\Ambiant\Day_Lp\Ambiant_Wind_Leafs_Lp_B587EF35.wem</Path>
+				</File>
+				<File Id="651341306" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_04.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_04_49718417.wem</Path>
+				</File>
+				<File Id="655868356" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_11.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_11_49718417.wem</Path>
+				</File>
+				<File Id="666108000" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_10.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_10_C4AFEB22.wem</Path>
+				</File>
+				<File Id="673225341" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_02.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_02_49718417.wem</Path>
+				</File>
+				<File Id="678092085" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Light\FTS_Mud_Light_L_02.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Light\FTS_Mud_Light_L_02_49718417.wem</Path>
+				</File>
+				<File Id="689234866" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_03.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Medium\FTS_Mud_Medium_L_03_49718417.wem</Path>
+				</File>
+				<File Id="690627469" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_03.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_03_49718417.wem</Path>
+				</File>
+				<File Id="712179299" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_06.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_06_49718417.wem</Path>
+				</File>
+				<File Id="730396462" Language="SFX">
+					<ShortName>SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_04.wav</ShortName>
+					<Path>SFX\SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_04_4B07551A.wem</Path>
+				</File>
+				<File Id="763461769" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_01.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Wind_Howls\Ambiant_Wind_Howls_OS_01_1288BA46.wem</Path>
+				</File>
+				<File Id="770300461" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_05.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_05_49718417.wem</Path>
+				</File>
+				<File Id="776074818" Language="SFX">
+					<ShortName>Footsteps\Gear\Cloth\FTS_Cloth_L_04.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\Cloth\FTS_Cloth_L_04_49718417.wem</Path>
+				</File>
+				<File Id="779918029" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_01.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_01_49718417.wem</Path>
+				</File>
+				<File Id="784465784" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Light_02.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Light_02_49718417.wem</Path>
+				</File>
+				<File Id="787509311" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Vegetation\Ambiant_Forest_Vegetation_OS_03.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Vegetation\Ambiant_Forest_Vegetation_OS_03_49718417.wem</Path>
+				</File>
+				<File Id="790215191" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_04.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_04_49718417.wem</Path>
+				</File>
+				<File Id="799269926" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Light\FTS_Mud_Light_L_04.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Light\FTS_Mud_Light_L_04_49718417.wem</Path>
+				</File>
+				<File Id="807053639" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_03.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_03_49718417.wem</Path>
+				</File>
+				<File Id="807157152" Language="SFX">
+					<ShortName>Ambiant\Day_Lp\Ambiant_Wind_Low_Lp.wav</ShortName>
+					<Path>SFX\Ambiant\Day_Lp\Ambiant_Wind_Low_Lp_B587EF35.wem</Path>
+				</File>
+				<File Id="811596437" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_01.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_01_49718417.wem</Path>
+				</File>
+				<File Id="815721468" Language="SFX">
+					<ShortName>Footsteps\Gear\Cloth\FTS_Cloth_R_02.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\Cloth\FTS_Cloth_R_02_49718417.wem</Path>
+				</File>
+				<File Id="817626107" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_SpoolReload_02.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_SpoolReload_02_49718417.wem</Path>
+				</File>
+				<File Id="828523852" Language="SFX">
+					<ShortName>SFX_Cadavre\SFX_Cadavre_Flies_Lp.wav</ShortName>
+					<Path>SFX\SFX_Cadavre\SFX_Cadavre_Flies_Lp_B587EF35.wem</Path>
+				</File>
+				<File Id="837457025" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_02.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_02_49718417.wem</Path>
+				</File>
+				<File Id="842020344" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Light\FTS_Mud_Light_L_01.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Light\FTS_Mud_Light_L_01_49718417.wem</Path>
+				</File>
+				<File Id="847870607" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_02.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_02_49718417.wem</Path>
+				</File>
+				<File Id="848713835" Language="SFX">
+					<ShortName>SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_03.wav</ShortName>
+					<Path>SFX\SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_03_C4C6F44C.wem</Path>
+				</File>
+				<File Id="854779776" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_07.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_07_49718417.wem</Path>
+				</File>
+				<File Id="865479207" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_06.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_06_49718417.wem</Path>
+				</File>
+				<File Id="890054774" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_07.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_07_49718417.wem</Path>
+				</File>
+				<File Id="900697973" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_06.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_06_49718417.wem</Path>
+				</File>
+				<File Id="902853314" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_04.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_04_49718417.wem</Path>
+				</File>
+				<File Id="909029856" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_10.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_10_49718417.wem</Path>
+				</File>
+				<File Id="913278681" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_02.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_02_49718417.wem</Path>
+				</File>
+				<File Id="924225181" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_08.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_08_49718417.wem</Path>
+				</File>
+				<File Id="945616112" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_03.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_03_49718417.wem</Path>
+				</File>
+				<File Id="955895749" Language="SFX">
+					<ShortName>SFX_TakePaper\SFX_TakePaper_06.wav</ShortName>
+					<Path>SFX\SFX_TakePaper\SFX_TakePaper_06_50C693F9.wem</Path>
+				</File>
+				<File Id="958632936" Language="SFX">
+					<ShortName>Footsteps\Mud\Left\Light\FTS_Mud_Light_L_05.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Left\Light\FTS_Mud_Light_L_05_49718417.wem</Path>
+				</File>
+				<File Id="961272204" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Light_05.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Light_05_49718417.wem</Path>
+				</File>
+				<File Id="981952339" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_05.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Medium\FTS_Mud_Medium_R_05_49718417.wem</Path>
+				</File>
+				<File Id="984604711" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_07.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_07_49718417.wem</Path>
+				</File>
+				<File Id="985131595" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_04.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_04_012482AC.wem</Path>
+				</File>
+				<File Id="993268731" Language="SFX">
+					<ShortName>Footsteps\Mud\Right\Light\FTS_Mud_Light_R_02.wav</ShortName>
+					<Path>SFX\Footsteps\Mud\Right\Light\FTS_Mud_Light_R_02_49718417.wem</Path>
+				</File>
+				<File Id="996823505" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_06.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_06_49718417.wem</Path>
+				</File>
+				<File Id="1007164182" Language="SFX">
+					<ShortName>SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_01.wav</ShortName>
+					<Path>SFX\SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_01_F236291C.wem</Path>
+				</File>
+				<File Id="1013252983" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_04.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Hard_04_49718417.wem</Path>
+				</File>
+				<File Id="1013691560" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_04.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_04_49718417.wem</Path>
+				</File>
+				<File Id="1017266652" Language="SFX">
+					<ShortName>Footsteps\Gear\Cloth\FTS_Cloth_R_03.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\Cloth\FTS_Cloth_R_03_49718417.wem</Path>
+				</File>
+				<File Id="1023311817" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_02.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_02_6379A77F.wem</Path>
+				</File>
+				<File Id="1024713281" Language="SFX">
+					<ShortName>SFX_Cadavre\SFX_Cadavre_Flies_OS_05.wav</ShortName>
+					<Path>SFX\SFX_Cadavre\SFX_Cadavre_Flies_OS_05_49718417.wem</Path>
+				</File>
+				<File Id="1032274393" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_09.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Insects\Ambiant_Forest_Insects_OS_09_49718417.wem</Path>
+				</File>
+				<File Id="1046375580" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_05.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Ambiant_Forest_Bird_OS_05_49718417.wem</Path>
+				</File>
+				<File Id="1059043106" Language="SFX">
+					<ShortName>SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_04.wav</ShortName>
+					<Path>SFX\SFX\SFX_TakeTypewriter\SFX_TakeTypewriter_04_49718417.wem</Path>
+				</File>
+				<File Id="1060308833" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_09.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Key\SFX_Typewriter_Key_09_49718417.wem</Path>
+				</File>
+				<File Id="1063489088" Language="SFX">
+					<ShortName>Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_03.wav</ShortName>
+					<Path>SFX\Footsteps\Gear\MetalMove\FTS_MetalMove_Medium_03_49718417.wem</Path>
+				</File>
+				<File Id="1069051616" Language="SFX">
+					<ShortName>Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_02.wav</ShortName>
+					<Path>SFX\Ambiant\Day_OS\Bird\Gousse\Ambiant_Forest_Gousse_OS_02_49718417.wem</Path>
+				</File>
+				<File Id="1071020788" Language="SFX">
+					<ShortName>SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_03.wav</ShortName>
+					<Path>SFX\SFX_Typewiter\SFX_Spool\SFX_Typewriter_Spool_03_49718417.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
