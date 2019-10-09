@@ -1,13 +1,13 @@
 <?php
 
-	$bd=new PDO('mysql:host=db5000192818.hosting-data.io;dbname=dbs187630','dbu397590','Uba2_Wy2V8@DB16', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-	$requete = $bd->prepare('SELECT * FROM Party');	
-	$requete->execute() ;
+	$bd=mysqli_connect('db5000192818.hosting-data.io','dbu397590','Uba2_Wy2V8@DB16','dbs187630');
+	$query = 'SELECT * FROM Party';
+	$result = mysqli_query($bd, $query);
+
 	$jsonmessage =  $jsonmessage.'{"Deads":[';
-	$rows = $requete->fetchall(PDO::FETCH_OBJ);
-	foreach($rows as $row){
+	while ($row = mysqli_fetch_assoc($result)) {
 		if(substr($jsonmessage, -1) == '}') $jsonmessage = $jsonmessage.',';
-		$jsonmessage =  $jsonmessage.'{"dead":"'.$row->dead.'","position":"'.$row->position.'","text":"'.$row->text.'"}';
+		$jsonmessage =  $jsonmessage.'{"dead":"'.$row["dead"].'","position":"'.$row["position"].'","text":"'.(str_replace(array("\r\n", "\r", "\n"), "#", $row["text"])).'"}';
 
 	}
 	$jsonmessage =  $jsonmessage.']}';
