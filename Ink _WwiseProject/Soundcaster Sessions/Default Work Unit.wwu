@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{75235196-E6B1-4834-9053-267DDD4EF63F}" SchemaVersion="94">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{75235196-E6B1-4834-9053-267DDD4EF63F}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Main" ID="{F5810911-772B-4AC0-9C29-A892FB425AC0}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Ambiant_Day" ID="{E9677DAC-91C7-4AF8-A227-FDC47414A107}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_TypeWriter" ID="{E687754B-DCF5-4108-9602-F18DA5D5C456}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_PaperAppears" ID="{7480D5BE-0D00-4669-8B66-3CAADFA8EE35}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_PutAwayTypewriter" ID="{6F444148-3CBB-4E9A-9F30-738CAFE7F5A5}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Footsteps_All" ID="{D9422E64-4806-4F0F-BB85-CCA2E53BE482}" WorkUnitID="{7368BC20-0849-4842-A30E-8924C94A5339}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_Key" ID="{A8650C6A-3A72-4FFA-BF2E-C15803D62299}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_PaperDisappears" ID="{734406CE-8258-4DA2-8AA5-1953B43BE0D2}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_Cadavre" ID="{EE871EBE-A69A-47ED-B152-B528DFB6393E}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="1" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_Spool" ID="{D55B9F15-3982-401D-986A-69D11150438F}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_NoBack" ID="{1476A6A5-3EFE-4F8D-BA68-05D84E10DCCD}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_Bell" ID="{D75290A6-D071-420F-8B76-EF360A4BDB7E}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_NoInkLeft" ID="{14C54CAA-42AF-4F4D-958C-DF970C865CE7}" WorkUnitID="{3430C4D3-C6F0-4983-9628-50C501263A0F}"/>
+							<Position X="4" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>
