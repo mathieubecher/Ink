@@ -30,7 +30,6 @@ public class DeadPaper : MonoBehaviour
 
         //float axes = Mathf.Lerp(dead.transform.position.x,Camera.main.transform.position.x, 0.2f);
         float axes = Camera.main.transform.position.x;
-        Debug.Log(axes + " " + originposx);
         Vector3 y = new Vector3(0,transform.position.y,0);
         if (spawnProgress < 1f && dead.active)
         {
