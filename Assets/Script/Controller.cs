@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using TMPro;
 public class Controller : MonoBehaviour
 {
     [SerializeField] private float speed = 1.5f;
@@ -19,6 +20,7 @@ public class Controller : MonoBehaviour
     private float writeheight = -5;
     private string lastText = "";
     public float nbchar = 3;
+    public TextMeshProUGUI textchar;
     public float originalpos;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,8 @@ public class Controller : MonoBehaviour
     void Update()
     {
         Move();
+
+        textchar.SetText((Mathf.Floor(nbchar) - text.Length).ToString());
     }
     public void Move()
     {
@@ -81,6 +85,8 @@ public class Controller : MonoBehaviour
         Vector3 camera = Camera.main.transform.position;
         camera.y = curve.Evaluate(progress*(1/speedProgress)) * writeheight;
         Camera.main.transform.position = camera;
+
+
     }
 
 
