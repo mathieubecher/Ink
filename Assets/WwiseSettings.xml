@@ -6,7 +6,7 @@
   <CreateWwiseListener>true</CreateWwiseListener>
   <GenerateSoundBanksAsPreBuildStep>false</GenerateSoundBanksAsPreBuildStep>
   <ShowMissingRigidBodyWarning>true</ShowMissingRigidBodyWarning>
-  <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
+  <SoundbankPath>Audio/GeneratedSoundBanks/</SoundbankPath>
   <WwiseInstallationPathMac />
   <WwiseInstallationPathWindows>D:\Wwise 2019.1.4.7065</WwiseInstallationPathWindows>
   <WwiseProjectPath>../../Art game - Ink/Art game - Ink.wproj</WwiseProjectPath>

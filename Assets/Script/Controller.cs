@@ -98,12 +98,19 @@ public class Controller : MonoBehaviour
     
     public IEnumerator Exit()
     {
-        Debug.Log("coucou");
-        UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/SetDead.php?time=" + System.DateTime.Now + "&position=" + transform.position.x + "&text=" + text);
-        yield return www.SendWebRequest();
+        if(text != "") { 
+            string time = TwoChar(System.DateTime.Now.Day) + "/" + TwoChar(System.DateTime.Now.Month) + "/" + System.DateTime.Now.Year + " " + TwoChar(System.DateTime.Now.Hour)+ ":" + TwoChar(System.DateTime.Now.Minute) + ":" + TwoChar(System.DateTime.Now.Second);
+            UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/SetDead.php?time=" + time + "&position=" + transform.position.x + "&text=" + text);
+            yield return www.SendWebRequest();
+        }
         SceneManager.LoadScene(0);
     }
     
-
+    public string TwoChar(int value)
+    {
+        string tochar = ""+ value;
+        if (value < 10) tochar = "0" + tochar;
+        return tochar;
+    }
 
 }
