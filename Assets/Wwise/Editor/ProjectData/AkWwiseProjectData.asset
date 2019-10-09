@@ -1,0 +1,254 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f079b45d3f489041bde723ffcaf7c98, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 27a3d23e45409a43b59f285e919f9fb6
+    GuidInternal: 
+    m_lastTime: -8586310818064391855
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 19f35b775d427746b7f8b17764cfe239
+    GuidInternal: 
+    m_lastTime: -8586309799014527750
+    List:
+    - name: AMBIANT_OS
+      guid: f93ac06dc2a0ed42b229b048ef9abe83
+      id: 3405182688
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: REVS
+        ObjectType: 2
+      - ElementName: AMBIANT_OS
+        ObjectType: 1
+      Path: Default Work Unit\Master Audio Bus\REVS\AMBIANT_OS
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 56854cf90e993847a3dd7c46e8019fd6
+    GuidInternal: 
+    m_lastTime: -8586310815145049259
+    List: []
+  - PhysicalPath: SoundBanks\Ink.wwu
+    ParentPhysicalPath: 
+    guid: 3d3b4a617a8b3349a0246f032ba3415c
+    GuidInternal: 
+    m_lastTime: -8586309772509868973
+    List:
+    - name: Main_Soundbank
+      guid: 55a8d32af06c844aa4b332486ecb8a56
+      id: 2228651116
+      PathAndIcons:
+      - ElementName: Ink
+        ObjectType: 12
+      - ElementName: Main_Soundbank
+        ObjectType: 7
+      Path: Ink\Main_Soundbank
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: d3c43034f0c68349962850c501263a0f
+    GuidInternal: 
+    m_lastTime: -8586309772510208045
+    List:
+    - name: Ambiant_Day
+      guid: ac7d67e9c791f84aa227fdc47414a107
+      id: 2363272052
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ambiant_Day
+        ObjectType: 3
+      Path: Default Work Unit\Ambiant_Day
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Footsteps
+      guid: 1707548527e2614b987d8a2321f0be71
+      id: 2385628198
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Footsteps
+        ObjectType: 3
+      Path: Default Work Unit\Footsteps
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_Bell
+      guid: a69052d771d00f428b76ef360a4bdb7e
+      id: 1101959602
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_Bell
+        ObjectType: 3
+      Path: Default Work Unit\SFX_Bell
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_Cadavre
+      guid: be1e87ee9aa6ed47b152b528dfb6393e
+      id: 1281716197
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_Cadavre
+        ObjectType: 3
+      Path: Default Work Unit\SFX_Cadavre
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_Key
+      guid: 6a0c65a8723afa4fbf2ec15803d62299
+      id: 681822082
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_Key
+        ObjectType: 3
+      Path: Default Work Unit\SFX_Key
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_NoBack
+      guid: a5a67614fe3e8d4fba6805d84e10dccd
+      id: 480120917
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_NoBack
+        ObjectType: 3
+      Path: Default Work Unit\SFX_NoBack
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_NoInkLeft
+      guid: aa4cc514af424d4f958cdf970c865ce7
+      id: 855119499
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_NoInkLeft
+        ObjectType: 3
+      Path: Default Work Unit\SFX_NoInkLeft
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_PaperAppears
+      guid: bed58074000d69468b663caadfa8ee35
+      id: 831657605
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_PaperAppears
+        ObjectType: 3
+      Path: Default Work Unit\SFX_PaperAppears
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_PaperDisappears
+      guid: ce0644735882a24d8aa51953b43be0d2
+      id: 196682047
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_PaperDisappears
+        ObjectType: 3
+      Path: Default Work Unit\SFX_PaperDisappears
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_PutAwayTypewriter
+      guid: 4841446fbb3c9a4e9f30738cafe7f5a5
+      id: 3380952835
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_PutAwayTypewriter
+        ObjectType: 3
+      Path: Default Work Unit\SFX_PutAwayTypewriter
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_Spool
+      guid: 159f5bd582391d40986a69d11150438f
+      id: 4228261502
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_Spool
+        ObjectType: 3
+      Path: Default Work Unit\SFX_Spool
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_TypeWriter
+      guid: 4b7587e6f5dc08419602f18da5d5c456
+      id: 4036892440
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_TypeWriter
+        ObjectType: 3
+      Path: Default Work Unit\SFX_TypeWriter
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: bea16e8ffb7ecd4db3b528a0d8a0163d
+    GuidInternal: 
+    m_lastTime: -8586310818063191075
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 5a3ec592220ae64b96aef8567ebf1a73
+    GuidInternal: 
+    m_lastTime: -8586310818063470330
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 1631dad3b49b784c9569064b552401c3
+    GuidInternal: 
+    m_lastTime: -8586310818063380567
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 590246092f8fb84b92315dcc9ee1608a
+    GuidInternal: 
+    m_lastTime: -8586310818064043694
+    List: []
+  ExpandedItems:
+  - /Art game - Ink
+  - /Art game - Ink/Auxiliary Busses
+  - /Art game - Ink/Auxiliary Busses/Default Work Unit
+  - /Art game - Ink/Auxiliary Busses/Default Work Unit/Master Audio Bus
+  - /Art game - Ink/Auxiliary Busses/Default Work Unit/Master Audio Bus/REVS
+  - /Art game - Ink/Events
+  - /Art game - Ink/Events/Default Work Unit
+  - /Art game - Ink/SoundBanks
+  - /Art game - Ink/SoundBanks/Ink
+  autoPopulateEnabled: 1
+  CurrentPluginConfig: 
