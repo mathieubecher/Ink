@@ -9,6 +9,7 @@ public class Dead : MonoBehaviour
     public float deadTime;
     public string text;
     public bool active = false;
+    [SerializeField] private List<Sprite> listdeadSprite;
     // Start is called before the first frame update
     void Start()
     {

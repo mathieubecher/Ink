@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6226547808822557949}
   - component: {fileID: 6226547808822557948}
   - component: {fileID: 6226547808822557937}
-  - component: {fileID: 1758442254794367997}
+  - component: {fileID: 656777980}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -51,13 +51,58 @@ MonoBehaviour:
   speed: 1.5
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   charCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7998005
+      value: 1
+      inSlope: -0.013419092
+      outSlope: -0.013419092
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15552396
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 2
+      inSlope: 13.90689
+      outSlope: 13.90689
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15549028
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -65,6 +110,7 @@ MonoBehaviour:
   text: 
   write: 0
   nbchar: 3
+  textchar: {fileID: 0}
   originalpos: 0
 --- !u!114 &6226547808822557938
 MonoBehaviour:
@@ -93,7 +139,7 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -137,13 +183,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -540375121143967267, guid: 053f7bada404cd14d8e62f45ef5c21f4,
+  m_Sprite: {fileID: 4334783836991956000, guid: 053f7bada404cd14d8e62f45ef5c21f4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 2.0233333, y: 2.0171428}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -166,8 +212,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.1}
-    oldSize: {x: 2.0233333, y: 2.0171428}
-    newSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.0233333, y: 2.015}
+    newSize: {x: 2.0233333, y: 2.0171428}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -175,7 +221,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.17816943}
   m_EdgeRadius: 0
---- !u!95 &1758442254794367997
+--- !u!95 &656777980
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

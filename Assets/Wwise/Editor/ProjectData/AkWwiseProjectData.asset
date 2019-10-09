@@ -17,14 +17,14 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 27a3d23e45409a43b59f285e919f9fb6
     GuidInternal: 
-    m_lastTime: -8586310818064391855
+    m_lastTime: -8586309714571158824
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 19f35b775d427746b7f8b17764cfe239
     GuidInternal: 
-    m_lastTime: -8586309799014527750
+    m_lastTime: -8586309714572345651
     List:
     - name: AMBIANT_OS
       guid: f93ac06dc2a0ed42b229b048ef9abe83
@@ -44,13 +44,13 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 56854cf90e993847a3dd7c46e8019fd6
     GuidInternal: 
-    m_lastTime: -8586310815145049259
+    m_lastTime: -8586309714571168647
     List: []
   - PhysicalPath: SoundBanks\Ink.wwu
     ParentPhysicalPath: 
     guid: 3d3b4a617a8b3349a0246f032ba3415c
     GuidInternal: 
-    m_lastTime: -8586309772509868973
+    m_lastTime: -8586309714571168647
     List:
     - name: Main_Soundbank
       guid: 55a8d32af06c844aa4b332486ecb8a56
@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: d3c43034f0c68349962850c501263a0f
     GuidInternal: 
-    m_lastTime: -8586309772510208045
+    m_lastTime: -8586309714572355623
     List:
     - name: Ambiant_Day
       guid: ac7d67e9c791f84aa227fdc47414a107
@@ -217,28 +217,28 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: bea16e8ffb7ecd4db3b528a0d8a0163d
     GuidInternal: 
-    m_lastTime: -8586310818063191075
+    m_lastTime: -8586309714572355623
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 5a3ec592220ae64b96aef8567ebf1a73
     GuidInternal: 
-    m_lastTime: -8586310818063470330
+    m_lastTime: -8586309714571168647
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 1631dad3b49b784c9569064b552401c3
     GuidInternal: 
-    m_lastTime: -8586310818063380567
+    m_lastTime: -8586309714571158824
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 590246092f8fb84b92315dcc9ee1608a
     GuidInternal: 
-    m_lastTime: -8586310818064043694
+    m_lastTime: -8586309714571158824
     List: []
   ExpandedItems:
   - /Art game - Ink
@@ -250,5 +250,5 @@ MonoBehaviour:
   - /Art game - Ink/Events/Default Work Unit
   - /Art game - Ink/SoundBanks
   - /Art game - Ink/SoundBanks/Ink
-  autoPopulateEnabled: 1
+  autoPopulateEnabled: 0
   CurrentPluginConfig: 

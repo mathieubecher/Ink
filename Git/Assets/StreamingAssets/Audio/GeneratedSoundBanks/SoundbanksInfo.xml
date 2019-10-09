@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>D:\Sessions\Ink\Git\Ink _WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Sessions\Ink\Git\Ink _WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Sessions\Ink\Git\Git\Assets\StreamingAssets\Audio\GeneratedSoundBanks\</SoundBanksRoot>
+		<ProjectRoot>D:\EspaceBecher\Realisations\enjmin\Ink\Ink _WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\EspaceBecher\Realisations\enjmin\Ink\Ink _WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\EspaceBecher\Realisations\enjmin\Ink\Git\Assets\StreamingAssets\Audio\GeneratedSoundBanks\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Sessions\Ink\Git\Ink _WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\EspaceBecher\Realisations\enjmin\Ink\Ink _WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>

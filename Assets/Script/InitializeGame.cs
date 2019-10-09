@@ -25,7 +25,9 @@ public class InitializeGame : MonoBehaviour
     public float maxy =-5f;
     void Start()
     {
+        
         StartCoroutine(Register());
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame
