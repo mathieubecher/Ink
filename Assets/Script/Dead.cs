@@ -13,7 +13,12 @@ public class Dead : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (deadTime > 60 * 24) Destroy(this.gameObject);
         
+        int id = listdeadSprite.Count - 1; 
+        if ((int)Mathf.Floor(listdeadSprite.Count * deadTime / (60 * 12)) < listdeadSprite.Count)
+            id = (int)Mathf.Floor(listdeadSprite.Count * deadTime / (60 * 12));
+        GetComponent<SpriteRenderer>().sprite = listdeadSprite[id];
     }
 
     // Update is called once per frame

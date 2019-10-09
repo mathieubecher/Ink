@@ -116,6 +116,14 @@ MonoBehaviour:
     Cons ectetur adipiscing elit.Lorem ipsum dolor sit amet. Consect etur adipisc
     ing elit.Lorem ipsum dolor sit amet. Consectetur adipiscing elit.
   active: 0
+  listdeadSprite:
+  - {fileID: -4024232986141084162, guid: 053f7bada404cd14d8e62f45ef5c21f4, type: 3}
+  - {fileID: -3551967274139903119, guid: 053f7bada404cd14d8e62f45ef5c21f4, type: 3}
+  - {fileID: 8113700493152974639, guid: 053f7bada404cd14d8e62f45ef5c21f4, type: 3}
+  - {fileID: 4819963251569588764, guid: 053f7bada404cd14d8e62f45ef5c21f4, type: 3}
+  - {fileID: -5809692940870928453, guid: 053f7bada404cd14d8e62f45ef5c21f4, type: 3}
+  - {fileID: 2351414161340878556, guid: 053f7bada404cd14d8e62f45ef5c21f4, type: 3}
+  - {fileID: 6285642079362487989, guid: 053f7bada404cd14d8e62f45ef5c21f4, type: 3}
 --- !u!61 &4960943170226192514
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -41,7 +41,6 @@ public class InitializeGame : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/GetDead.php");
         yield return www.SendWebRequest();
         string command = www.downloadHandler.text;
-        Debug.Log(command);
         ListaDead json = JsonUtility.FromJson<ListaDead>(command); 
 
         foreach(DeadInfo deadinfo in json.Deads)

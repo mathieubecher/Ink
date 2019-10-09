@@ -11,6 +11,7 @@ public class DeadPaper : MonoBehaviour
     [SerializeField] private TextMeshPro text;
     private float spawnProgress = 0;
     private float originposx;
+    private bool active = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,21 +32,22 @@ public class DeadPaper : MonoBehaviour
         //float axes = Mathf.Lerp(dead.transform.position.x,Camera.main.transform.position.x, 0.2f);
         float axes = Camera.main.transform.position.x;
         Vector3 y = new Vector3(0,transform.position.y,0);
-        if (spawnProgress < 1f && dead.active)
+        if (spawnProgress < 1f && dead.active && active)
         {
             spawnProgress += Time.deltaTime;
             y = (new Vector3(0, curve.Evaluate(spawnProgress) * 6 - 15 + beginheight, 0));
         }
-        else if (!dead.active && spawnProgress > 0)
+        else if ((!active || !dead.active) && spawnProgress > 0)
         {
-            text.sortingOrder = -2;
-            page.sortingOrder = -3;
+            active = false;
+            text.sortingOrder = -3;
+            page.sortingOrder = -4;
         
             spawnProgress -= Time.deltaTime;
             page.color = new Color(1, 1, 1, curve.Evaluate((spawnProgress - 0.2f)*5/4));
             y = (new Vector3(0, curve.Evaluate(spawnProgress) * 6 - 15 + beginheight, 0));
         }
-        else if (!dead.active) Destroy(this.gameObject);
+        else if (!active || !dead.active) Destroy(this.gameObject);
 
         transform.position = new Vector3(axes, 0, 0) + y ;
        

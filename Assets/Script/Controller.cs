@@ -11,9 +11,12 @@ public class Controller : MonoBehaviour
     [SerializeField] private float speed = 1.5f;
     [SerializeField] private AnimationCurve curve;
     [SerializeField] private AnimationCurve charCurve;
+    [SerializeField] private GameObject machin;
 
     private float speedProgress = 0.3f;
     private float progress = 0;
+    private float machinheight = -5;
+    private float originmachinheight;
     public InputField field;
     private Vector3 move;
     public string text;
@@ -24,12 +27,17 @@ public class Controller : MonoBehaviour
     public float nbchar = 3;
     public TextMeshProUGUI textchar;
     public float originalpos;
+
+
+    public float deadprogress;
+    public bool dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
         walkheight = Camera.main.transform.parent.transform.position.y;
         originalpos = transform.position.x;
-        
+        originmachinheight = machin.transform.position.y;
     }
 
     // Update is called once per frame
@@ -41,57 +49,74 @@ public class Controller : MonoBehaviour
     }
     public void Move()
     {
-        if (!write) {
-            field.DeactivateInputField();
-            if (progress > 0) progress -= Time.deltaTime;
-            //field.ActivateInputField();
-            move.x = Input.GetAxis("Horizontal");
-            //move.y = Input.GetAxis("Vertical");
-            move = move.normalized* speed;
-            GetComponent<Animator>().SetBool("Write", false);
-            GetComponent<Animator>().SetFloat("Move", move.magnitude);
-
-            if(move.x > 0) nbchar += charCurve.Evaluate((transform.position.x - originalpos)/120) * Time.deltaTime;
-
-            Vector3 campos = Camera.main.transform.parent.position;
-            campos.x = transform.position.x + 2.5f;
-            campos.y = walkheight;
-            Camera.main.transform.parent.transform.position = campos;
-            GetComponent<Rigidbody2D>().velocity = move;
-            if (Input.GetKeyDown(KeyCode.Space)) write = true;
-
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-               StartCoroutine(Exit());
-            }
-        }
-        else
+        if (!dead)
         {
-            GetComponent<Animator>().SetBool("Write", true);
-            if (progress < speedProgress) progress += Time.deltaTime;
-            field.ActivateInputField();
-
-            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (!write)
             {
-                lastText = text;
-                write = false;
+                field.DeactivateInputField();
+                if (progress > 0) progress -= Time.deltaTime;
+                //field.ActivateInputField();
+                move.x = Input.GetAxis("Horizontal");
+                //move.y = Input.GetAxis("Vertical");
+                move = move.normalized * speed;
+                GetComponent<Animator>().SetBool("Write", false);
+                GetComponent<Animator>().SetFloat("Move", move.magnitude);
+
+                if (move.x > 0) nbchar += charCurve.Evaluate((transform.position.x - originalpos) / 120) * Time.deltaTime;
+
+                Vector3 campos = Camera.main.transform.parent.position;
+                campos.x = transform.position.x + 2.5f;
+                campos.y = walkheight;
+                Camera.main.transform.parent.transform.position = campos;
+                GetComponent<Rigidbody2D>().velocity = move;
+                if (Input.GetKeyDown(KeyCode.Space)) write = true;
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    StartCoroutine(Exit());
+                }
             }
             else
             {
-                text = lastText + field.text;
-            }
-            if (text.Length > nbchar)
-            {
-                text = text.Substring(0, (int)Mathf.Floor(nbchar));
-                field.text = field.text.Substring(0, text.Length - lastText.Length);
-            }
-        }
+                GetComponent<Animator>().SetBool("Write", true);
+                if (progress < speedProgress) progress += Time.deltaTime;
+                field.ActivateInputField();
 
-        Vector3 camera = Camera.main.transform.position;
-        camera.y = curve.Evaluate(progress*(1/speedProgress)) * writeheight;
-        Camera.main.transform.position = camera;
+                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    lastText = text;
+                    write = false;
+                }
+                else
+                {
+                    text = lastText + field.text;
+                }
+                if (text.Length > nbchar)
+                {
+                    text = text.Substring(0, (int)Mathf.Floor(nbchar));
+                    field.text = field.text.Substring(0, text.Length - lastText.Length);
+                }
+            }
+
+            Vector3 camera = Camera.main.transform.position;
+            camera.y = curve.Evaluate(progress * (1 / speedProgress)) * writeheight;
+
+            Vector3 machinpos = machin.transform.position;
+            machinpos.y = curve.Evaluate(1 - progress * (1 / speedProgress)) * machinheight + originmachinheight;
+
+            Camera.main.transform.position = camera;
+            machin.transform.position = machinpos;
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            deadprogress -= Time.deltaTime;
+            if(deadprogress < 0)
+                SceneManager.LoadScene(0);
+        }
+        
 
 
     }
@@ -99,13 +124,14 @@ public class Controller : MonoBehaviour
     public IEnumerator Exit()
     {
         if(text != "") { 
-            string textParse = text.Replace('"',' ').Replace("\n","\\n");
-            Debug.Log(textParse);
+            string textParse = text.Replace('"',' ');
             string time = TwoChar(System.DateTime.Now.Day) + "/" + TwoChar(System.DateTime.Now.Month) + "/" + System.DateTime.Now.Year + " " + TwoChar(System.DateTime.Now.Hour)+ ":" + TwoChar(System.DateTime.Now.Minute) + ":" + TwoChar(System.DateTime.Now.Second);
             UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/SetDead.php?time=" + time + "&position=" + transform.position.x + "&text=" + textParse);
             yield return www.SendWebRequest();
         }
-        SceneManager.LoadScene(0);
+        dead = true;
+        deadprogress = 2;
+        GetComponent<Animator>().SetBool("Dead", true);
     }
     
     public string TwoChar(int value)
