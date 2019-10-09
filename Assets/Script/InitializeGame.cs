@@ -27,7 +27,7 @@ public class InitializeGame : MonoBehaviour
     {
         
         StartCoroutine(Register());
-        Destroy(this.gameObject);
+        
     }
 
     // Update is called once per frame
@@ -41,19 +41,20 @@ public class InitializeGame : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/GetDead.php");
         yield return www.SendWebRequest();
         string command = www.downloadHandler.text;
-
+        
         ListaDead json = JsonUtility.FromJson<ListaDead>(command); 
 
         foreach(DeadInfo deadinfo in json.Deads)
         {
             GameObject deadObject = Instantiate(dead,new Vector3(deadinfo.position, (Random.value * (maxy -miny)) + miny, 0), Quaternion.identity);
             (deadObject.GetComponent(typeof(Dead)) as Dead).text = deadinfo.text;
+            
             System.DateTime deaddate = System.DateTime.ParseExact(deadinfo.dead, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
            
 
             (deadObject.GetComponent(typeof(Dead)) as Dead).deadTime = (float)(System.DateTime.Now - deaddate).TotalMinutes;
         }
-        
 
+       // Destroy(this.gameObject);
     }
 }

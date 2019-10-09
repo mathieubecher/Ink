@@ -11,5 +11,5 @@
 
 	}
 	$jsonmessage =  $jsonmessage.']}';
-	echo $jsonmessage;
+	printf($jsonmessage);
 ?>

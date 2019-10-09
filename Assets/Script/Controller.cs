@@ -99,8 +99,10 @@ public class Controller : MonoBehaviour
     public IEnumerator Exit()
     {
         if(text != "") { 
+            string textParse = text.Replace('"',' ').Replace("\n","\\n");
+            Debug.Log(textParse);
             string time = TwoChar(System.DateTime.Now.Day) + "/" + TwoChar(System.DateTime.Now.Month) + "/" + System.DateTime.Now.Year + " " + TwoChar(System.DateTime.Now.Hour)+ ":" + TwoChar(System.DateTime.Now.Minute) + ":" + TwoChar(System.DateTime.Now.Second);
-            UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/SetDead.php?time=" + time + "&position=" + transform.position.x + "&text=" + text);
+            UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/SetDead.php?time=" + time + "&position=" + transform.position.x + "&text=" + textParse);
             yield return www.SendWebRequest();
         }
         SceneManager.LoadScene(0);
