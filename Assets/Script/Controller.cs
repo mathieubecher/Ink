@@ -22,7 +22,7 @@ public class Controller : MonoBehaviour
     public string text;
     public bool write = false;
     private float walkheight;
-    private float writeheight = -5;
+    private float writeheight = -4;
     private string lastText = "";
     public float nbchar = 3;
     public TextMeshProUGUI textchar;
@@ -57,23 +57,33 @@ public class Controller : MonoBehaviour
                 if (progress > 0) progress -= Time.deltaTime;
                 //field.ActivateInputField();
                 move.x = Input.GetAxis("Horizontal");
-                //move.y = Input.GetAxis("Vertical");
-                move = move.normalized * speed;
-                GetComponent<Animator>().SetBool("Write", false);
-                GetComponent<Animator>().SetFloat("Move", move.magnitude);
-
-                if (move.x > 0) nbchar += charCurve.Evaluate((transform.position.x - originalpos) / 120) * Time.deltaTime;
-
-                Vector3 campos = Camera.main.transform.parent.position;
-                campos.x = transform.position.x + 2.5f;
-                campos.y = walkheight;
-                Camera.main.transform.parent.transform.position = campos;
-                GetComponent<Rigidbody2D>().velocity = move;
-                if (Input.GetKeyDown(KeyCode.Space)) write = true;
-
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (move.x < 0)
                 {
-                    StartCoroutine(Exit());
+
+                    GetComponent<Animator>().SetBool("Bloc", true);
+                }
+                else
+                {
+                    //move.y = Input.GetAxis("Vertical");
+                    move = move.normalized * speed;
+                    GetComponent<Animator>().SetBool("Write", false);
+                    GetComponent<Animator>().SetFloat("Move", move.magnitude);
+                    GetComponent<Animator>().SetBool("Bloc", false);
+
+                    if (move.x > 0) nbchar += charCurve.Evaluate((transform.position.x - originalpos) / 120) * Time.deltaTime;
+
+                    Vector3 campos = Camera.main.transform.parent.position;
+                    campos.x = transform.position.x + 2.5f;
+                    campos.y = walkheight;
+                    Camera.main.transform.parent.transform.position = campos;
+                    GetComponent<Rigidbody2D>().velocity = move;
+
+                    if (Input.GetKeyDown(KeyCode.Space)) write = true;
+
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        StartCoroutine(Exit());
+                    }
                 }
             }
             else
