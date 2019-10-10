@@ -3274,7 +3274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1632366052, guid: d2e4e75104012f34494bdeff87a844f4, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6067730724183053656, guid: d2e4e75104012f34494bdeff87a844f4,
         type: 3}
@@ -3285,11 +3285,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FrontSortingOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387567517506525154, guid: d2e4e75104012f34494bdeff87a844f4,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2e4e75104012f34494bdeff87a844f4, type: 3}
@@ -3405,6 +3400,11 @@ PrefabInstance:
       propertyPath: vignette
       value: 
       objectReference: {fileID: 1965870278}
+    - target: {fileID: 6226547808822557939, guid: 771646f05c886b740909b2a9e7c27996,
+        type: 3}
+      propertyPath: nbchar
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6226547808822557936, guid: 771646f05c886b740909b2a9e7c27996,
         type: 3}
       propertyPath: m_LocalPosition.x
