@@ -71,7 +71,7 @@ public class Controller : MonoBehaviour
         Move();
         nbcharrestant = Mathf.RoundToInt(Mathf.Floor(nbchar) - text.Length);
         textchar.SetText(nbcharrestant.ToString());
-        ombre.color = new Color(1, 1, 1, (nbcharrestant / 250.0f)/2);
+        ombre.color = new Color(1, 1, 1, (nbcharrestant / 250.0f));
         mask.sprite = perso.sprite;
     }
     
