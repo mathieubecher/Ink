@@ -106,12 +106,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  machin: {fileID: 0}
   field: {fileID: 0}
   text: 
   write: 0
   nbchar: 3
   textchar: {fileID: 0}
   originalpos: 0
+  deadprogress: 0
+  dead: 0
 --- !u!114 &6226547808822557938
 MonoBehaviour:
   m_ObjectHideFlags: 0
