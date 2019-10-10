@@ -152,6 +152,8 @@ public class Controller : MonoBehaviour
                         if (deadCount < MAXDEADCOUNT)
                         {
                             audio.Stop();
+                            audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Die/SFX_DieBack"));
+
 
                         }
                         deadCount = MAXDEADCOUNT;

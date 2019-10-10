@@ -21,8 +21,7 @@ public class DeadPaper : MonoBehaviour
         text.text = dead.text.Replace('#','\n');
         transform.position = new Vector3(0, -20, 0);
         transform.rotation = Quaternion.Euler(0,0,Random.value * 10 -5);
-        Vector2 size = new Vector2(text.GetComponent<TextMeshPro>().GetComponent<Renderer>().bounds.size.x, text.GetComponent<TextMeshPro>().GetComponent<Renderer>().bounds.size.y);
-        beginheight = text.GetTextInfo(text.text).textComponent.GetPreferredValues().y;
+        beginheight = (text.GetTextInfo(text.text).textComponent.GetPreferredValues().y < 5)? text.GetTextInfo(text.text).textComponent.GetPreferredValues().y : 5 ;
         
     }
 
@@ -32,7 +31,12 @@ public class DeadPaper : MonoBehaviour
         //if (!dead.active) Destroy(this.gameObject);
 
         //float axes = Mathf.Lerp(dead.transform.position.x,Camera.main.transform.position.x, 0.2f);
+
+
         float axes = Camera.main.transform.position.x;
+
+        
+
         Vector3 y = new Vector3(0,transform.position.y,0);
         if (spawnProgress < 1f && dead.active && active)
         {
@@ -53,6 +57,23 @@ public class DeadPaper : MonoBehaviour
         else if (!active || !dead.active) Destroy(this.gameObject);
 
         transform.position = new Vector3(axes, 0, 0) + y ;
-       
+
+        /*
+
+        float axesy = Input.mousePosition.y;
+        float size = Screen.height;
+        float textProgress = 1- axesy / size;
+        if (textProgress >= 1) textProgress = 1;
+        Debug.Log(textProgress);
+        int nbreturn = dead.text.Split('\n').Length;
+        string newtext = "";
+        int i = nbreturn-1;
+        while(i>=0 && i > textProgress * nbreturn)
+        {
+            newtext = newtext + dead.text.Split('\n')[i];
+            --i;
+        }
+        text.text = newtext;
+        */
     }
 }
