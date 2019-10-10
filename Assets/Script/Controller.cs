@@ -28,6 +28,8 @@ public class Controller : MonoBehaviour
     public int nbcharrestant;
     public TextMeshProUGUI textchar;
     public float originalpos;
+    public SpriteRenderer perso;
+    public SpriteMask mask;
     public SpriteRenderer ombre;
     private float deadCount;
     private float MAXDEADCOUNT = 5;
@@ -51,6 +53,8 @@ public class Controller : MonoBehaviour
         Move();
         nbcharrestant = Mathf.RoundToInt(Mathf.Floor(nbchar) - text.Length);
         textchar.SetText(nbcharrestant.ToString());
+        ombre.color = new Color(1, 1, 1, (nbcharrestant / 250.0f)/2);
+        mask.sprite = perso.sprite;
     }
     public void Move()
     {
