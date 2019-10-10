@@ -108,7 +108,7 @@ public class Controller : MonoBehaviour
                         timebetweenstep = 0;
                         leftstep = !leftstep;
 
-                        audio.PlayOneShot((AudioClip)Resources.Load("Sound/Footsteps/FTS_Full/FTS_" + ((leftstep)? "Left_" : "Right_") + GetRandom(5)));
+                        audio.PlayOneShot((AudioClip)Resources.Load("Sound/Footsteps/FTS_Full/FTS_" + ((leftstep)? "Left_" : "Right_") + GetRandom(7)));
                     }
 
 
@@ -124,7 +124,11 @@ public class Controller : MonoBehaviour
                     Camera.main.transform.parent.transform.position = campos;
                     GetComponent<Rigidbody2D>().velocity = move;
 
-                    if (Input.GetKeyDown(KeyCode.Tab)) write = true;
+                    if (Input.GetKeyDown(KeyCode.Tab))
+                    {
+                        audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakeTypewriter/SFX_TakeTypewriter_"+Controller.GetRandom(4)));
+                        write = true;
+                    }
 
                     if (Input.GetKey(KeyCode.M))
                     {
@@ -159,16 +163,24 @@ public class Controller : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.Tab))
                 {
+                    audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_AwayTypewriter/SFX_AwayTypewriter_" + Controller.GetRandom(4)));
                     lastText = text;
                     field.text = "";
                     write = false;
                 }
                 else
                 {
+                    string oldtext = text;
                     text = lastText + field.text;
+                    if (oldtext.Length < text.Length)
+                    {
+                        if(text.Length <= nbchar)
+                        audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Typewiter/SFX_Key/SFX_Typewriter_Key_" + Controller.GetRandom(13)));
+                    }
                 }
                 if (text.Length > nbchar)
                 {
+                    audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Typewiter/SFX_Spool/SFX_Typewriter_Spool_" + Controller.GetRandom(4)));
                     text = text.Substring(0, (int)Mathf.Floor(nbchar));
                     field.text = field.text.Substring(0, text.Length - lastText.Length);
                 }
