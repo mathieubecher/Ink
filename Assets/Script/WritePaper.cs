@@ -35,5 +35,5 @@ public class WritePaper : MonoBehaviour
         if(height > lastheight) player.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Typewiter/SFX_Bell/SFX_Typewriter_Bell_" + Controller.GetRandom(4)));
         transform.localPosition = new Vector3(transform.localPosition.x, originpos + height,0);
 
-    }
+    }   
 }
