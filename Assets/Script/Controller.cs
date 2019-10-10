@@ -57,7 +57,7 @@ public class Controller : MonoBehaviour
         audio = GetComponent<AudioSource>();
         
     }
-    private string GetRandom(int maxvalue)
+    public static string GetRandom(int maxvalue)
     {
         string number = "";
         int rand = (int)Mathf.Floor((Random.value) * maxvalue + 1);
