@@ -15,15 +15,19 @@ public class Controller : MonoBehaviour
 
     private float speedProgress = 0.3f;
     private float progress = 0;
+
     private float machinheight = -5;
     private float originmachinheight;
+
     public InputField field;
     private Vector3 move;
+    private float timebetweenstep=0;
+    private bool leftstep = false;
+    
+
     public string text;
-    public bool write = false;
-    private float walkheight;
-    private float writeheight = -4;
     private string lastText = "";
+    public bool write = false;
     public float nbchar = 3;
     public int nbcharrestant;
     public TextMeshProUGUI textchar;
@@ -31,12 +35,16 @@ public class Controller : MonoBehaviour
     public SpriteRenderer perso;
     public SpriteMask mask;
     public SpriteRenderer ombre;
-    private float deadCount;
+    private float walkheight;
+    private float writeheight = -4;
+    public float deadCount;
     private float MAXDEADCOUNT = 5;
-
-
-    public float deadprogress;
+    public float deadAnim;
     public bool dead = false;
+
+    public Animator cameradeath;
+
+    private AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +53,16 @@ public class Controller : MonoBehaviour
         walkheight = Camera.main.transform.parent.transform.position.y;
         originalpos = transform.position.x;
         originmachinheight = machin.transform.position.y;
+        audio = GetComponent<AudioSource>();
+        
     }
-
+    private string GetRandom(int maxvalue)
+    {
+        string number = "";
+        int rand = (int)Mathf.Floor((Random.value) * maxvalue + 1);
+        if (rand < 10) number += "0";
+        return number + rand;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -56,6 +72,8 @@ public class Controller : MonoBehaviour
         ombre.color = new Color(1, 1, 1, (nbcharrestant / 250.0f)/2);
         mask.sprite = perso.sprite;
     }
+    
+
     public void Move()
     {
         if (!dead)
@@ -68,8 +86,10 @@ public class Controller : MonoBehaviour
                 move.x = Input.GetAxis("Horizontal");
                 if (move.x < 0)
                 {
-
+                    if(!GetComponent<Animator>().GetBool("Bloc"))
+                    audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_NoBack/SFX_NoBack_" + GetRandom(4)));
                     GetComponent<Animator>().SetBool("Bloc", true);
+                    
                 }
                 else
                 {
@@ -79,7 +99,22 @@ public class Controller : MonoBehaviour
                     GetComponent<Animator>().SetFloat("Move", move.magnitude);
                     GetComponent<Animator>().SetBool("Bloc", false);
 
-                    if (move.x > 0) nbchar += charCurve.Evaluate((transform.position.x - originalpos) / 120) * Time.deltaTime;
+                    if(move.x > 0)
+                        timebetweenstep += Time.deltaTime*2;
+                    if(timebetweenstep > 1)
+                    {
+                        timebetweenstep = 0;
+                        leftstep = !leftstep;
+
+                        audio.PlayOneShot((AudioClip)Resources.Load("Sound/Footsteps/FTS_Full/FTS_" + ((leftstep)? "Left_" : "Right_") + GetRandom(5)));
+                    }
+
+
+                    if (move.x > 0)
+                    {
+                        
+                        nbchar += charCurve.Evaluate((transform.position.x - originalpos) / 120) * Time.deltaTime;
+                    }
 
                     Vector3 campos = Camera.main.transform.parent.position;
                     campos.x = transform.position.x + 2.5f;
@@ -92,11 +127,13 @@ public class Controller : MonoBehaviour
                     if (Input.GetKey(KeyCode.M))
                     {
                         deadCount -= Time.deltaTime;
-                        if(deadCount < 0 && !dead) StartCoroutine(Exit());
+                        cameradeath.SetFloat("compteur", MAXDEADCOUNT - deadCount);
+                        if (deadCount < 0 && !dead) StartCoroutine(Exit());
                     }
                     else
                     {
                         deadCount = MAXDEADCOUNT;
+                        cameradeath.SetFloat("compteur", -0.1f);
                     }
                 }
             }
@@ -143,8 +180,8 @@ public class Controller : MonoBehaviour
         else
         {
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            deadprogress -= Time.deltaTime;
-            if(deadprogress < 0)
+            deadAnim -= Time.deltaTime;
+            if(deadAnim < 0)
                 SceneManager.LoadScene(0);
         }
         
@@ -157,12 +194,18 @@ public class Controller : MonoBehaviour
         dead = true;
         if (text != "") { 
             string textParse = text.Replace('"',' ');
-            string time = TwoChar(System.DateTime.Now.Day) + "/" + TwoChar(System.DateTime.Now.Month) + "/" + System.DateTime.Now.Year + " " + TwoChar(System.DateTime.Now.Hour)+ ":" + TwoChar(System.DateTime.Now.Minute) + ":" + TwoChar(System.DateTime.Now.Second);
-            UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/SetDead.php?time=" + time + "&position=" + transform.position.x + "&text=" + textParse);
+            string time = TwoChar(System.DateTime.Now.Day) + "/" + TwoChar(System.DateTime.Now.Month) + "/" + System.DateTime.Now.Year + " " + TwoChar(System.DateTime.Now.Hour) + ":" + TwoChar(System.DateTime.Now.Minute) + ":" + TwoChar(System.DateTime.Now.Second);
+
+            WWWForm form = new WWWForm();
+            form.AddField("position",""+transform.position.x);
+            form.AddField("text", textParse);
+            form.AddField("time", time);
+
+            UnityWebRequest www = UnityWebRequest.Post("http://portfoliobecher.com/Ink/SetDead.php",form);
             yield return www.SendWebRequest();
         }
-        
-        deadprogress = 2;
+
+        deadAnim = 2;
         GetComponent<Animator>().SetBool("Dead", true);
     }
     
