@@ -129,12 +129,14 @@ public class Controller : MonoBehaviour
                     {
                         deadCount -= Time.deltaTime;
                         cameradeath.SetFloat("compteur", MAXDEADCOUNT - deadCount);
+                        GetComponent<Animator>().SetFloat("CompteurMort", MAXDEADCOUNT - deadCount);
                         if (deadCount < 0 && !dead) StartCoroutine(Exit());
                     }
                     else
                     {
                         deadCount = MAXDEADCOUNT;
                         cameradeath.SetFloat("compteur", -0.1f);
+                        GetComponent<Animator>().SetFloat("CompteurMort", -0.1f);
                     }
                 }
             }
