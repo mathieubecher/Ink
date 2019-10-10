@@ -21,9 +21,9 @@ public class Controller : MonoBehaviour
 
     public InputField field;
     private Vector3 move;
-    private float timebetweenstep=0;
+    private float timebetweenstep = 0;
     private bool leftstep = false;
-    
+
 
     public string text;
     private string lastText = "";
@@ -56,7 +56,7 @@ public class Controller : MonoBehaviour
         originalpos = transform.position.x;
         originmachinheight = machin.transform.position.y;
         audio = GetComponent<AudioSource>();
-        
+
     }
     public static string GetRandom(int maxvalue)
     {
@@ -74,7 +74,7 @@ public class Controller : MonoBehaviour
         ombre.color = new Color(1, 1, 1, (nbcharrestant / 250.0f));
         mask.sprite = perso.sprite;
     }
-    
+
 
     public void Move()
     {
@@ -83,79 +83,83 @@ public class Controller : MonoBehaviour
             if (!write)
             {
                 field.DeactivateInputField();
-                
-                    if (Input.GetKey(KeyCode.M))
+
+                if (Input.GetKey(KeyCode.M))
+                {
+                    GetComponent<Animator>().SetBool("Write", false);
+                    GetComponent<Animator>().SetFloat("Move", 0);
+                    GetComponent<Animator>().SetBool("Bloc", false);
+                    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    if (deadCount == MAXDEADCOUNT) audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Die/SFX_Die"));
+                    deadCount -= Time.deltaTime;
+                    cameradeath.SetFloat("compteur", MAXDEADCOUNT - deadCount);
+                    cameradeath.enabled = true;
+                    GetComponent<Animator>().SetFloat("CompteurMort", MAXDEADCOUNT - deadCount);
+                    vignette.SetFloat("compteur", MAXDEADCOUNT - deadCount);
+                    if (deadCount < 0 && !dead) StartCoroutine(Exit());
+                }
+                else
+                {
+                    if (progress > 0) progress -= Time.deltaTime;
+                    //field.ActivateInputField();
+                    move.x = Input.GetAxis("Horizontal");
+                    if (move.x < 0)
                     {
-                        GetComponent<Animator>().SetBool("Write", false);
-                        GetComponent<Animator>().SetFloat("Move", 0);
-                        GetComponent<Animator>().SetBool("Bloc", false);
-                        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                        if (deadCount == MAXDEADCOUNT) audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Die/SFX_Die"));
-                        deadCount -= Time.deltaTime;
-                        cameradeath.SetFloat("compteur", MAXDEADCOUNT - deadCount);
-                        cameradeath.enabled = true;
-                        GetComponent<Animator>().SetFloat("CompteurMort", MAXDEADCOUNT - deadCount);
-                        vignette.SetFloat("compteur", MAXDEADCOUNT - deadCount);
-                        if (deadCount < 0 && !dead) StartCoroutine(Exit());
+                        if (!GetComponent<Animator>().GetBool("Bloc"))
+                            audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_NoBack/SFX_NoBack_" + GetRandom(4)));
+                        GetComponent<Animator>().SetBool("Bloc", true);
+
                     }
                     else
                     {
-                        if (progress > 0) progress -= Time.deltaTime;
-                        //field.ActivateInputField();
-                        move.x = Input.GetAxis("Horizontal");
-                        if (move.x < 0)
+                        //move.y = Input.GetAxis("Vertical");
+                        move = move.normalized * speed;
+                        GetComponent<Animator>().SetBool("Write", false);
+                        GetComponent<Animator>().SetFloat("Move", move.magnitude);
+                        GetComponent<Animator>().SetBool("Bloc", false);
+
+                        if (move.x > 0)
+                            timebetweenstep += Time.deltaTime * 2;
+                        if (timebetweenstep > 1)
                         {
-                            if (!GetComponent<Animator>().GetBool("Bloc"))
-                                audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_NoBack/SFX_NoBack_" + GetRandom(4)));
-                            GetComponent<Animator>().SetBool("Bloc", true);
+                            timebetweenstep = 0;
+                            leftstep = !leftstep;
+
+                            audio.PlayOneShot((AudioClip)Resources.Load("Sound/Footsteps/FTS_Full/FTS_" + ((leftstep) ? "Left_" : "Right_") + GetRandom(7)));
+                        }
+
+
+                        if (move.x > 0)
+                        {
+
+                            nbchar += charCurve.Evaluate((transform.position.x - originalpos) / 120) * Time.deltaTime;
+                        }
+
+                        Vector3 campos = Camera.main.transform.parent.position;
+                        campos.x = transform.position.x + 2.5f;
+                        campos.y = walkheight;
+                        Camera.main.transform.parent.transform.position = campos;
+                        GetComponent<Rigidbody2D>().velocity = move;
+
+                        if (Input.GetKeyDown(KeyCode.Tab) && cameradeath.GetCurrentAnimatorStateInfo(0).IsName("Camera"))
+                        {
+
+                            audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakeTypewriter/SFX_TakeTypewriter_" + Controller.GetRandom(4)));
+                            write = true;
+                            cameradeath.enabled = false;
 
                         }
-                        else
+                        if (deadCount < MAXDEADCOUNT)
                         {
-                            //move.y = Input.GetAxis("Vertical");
-                            move = move.normalized * speed;
-                            GetComponent<Animator>().SetBool("Write", false);
-                            GetComponent<Animator>().SetFloat("Move", move.magnitude);
-                            GetComponent<Animator>().SetBool("Bloc", false);
+                            audio.Stop();
 
-                            if (move.x > 0)
-                                timebetweenstep += Time.deltaTime * 2;
-                            if (timebetweenstep > 1)
-                            {
-                                timebetweenstep = 0;
-                                leftstep = !leftstep;
-
-                                audio.PlayOneShot((AudioClip)Resources.Load("Sound/Footsteps/FTS_Full/FTS_" + ((leftstep) ? "Left_" : "Right_") + GetRandom(7)));
-                            }
-
-
-                            if (move.x > 0)
-                            {
-
-                                nbchar += charCurve.Evaluate((transform.position.x - originalpos) / 120) * Time.deltaTime;
-                            }
-
-                            Vector3 campos = Camera.main.transform.parent.position;
-                            campos.x = transform.position.x + 2.5f;
-                            campos.y = walkheight;
-                            Camera.main.transform.parent.transform.position = campos;
-                            GetComponent<Rigidbody2D>().velocity = move;
-
-                            if (Input.GetKeyDown(KeyCode.Tab) && cameradeath.GetCurrentAnimatorStateInfo(0).IsName("Camera"))
-                            {
-                                
-                                audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakeTypewriter/SFX_TakeTypewriter_" + Controller.GetRandom(4)));
-                                write = true;
-                                cameradeath.enabled = false;
-
-                            }
-                            if (deadCount < MAXDEADCOUNT) audio.Stop();
-                            deadCount = MAXDEADCOUNT;
-                            cameradeath.SetFloat("compteur", -0.1f);
-                            GetComponent<Animator>().SetFloat("CompteurMort", -0.1f);
-                            vignette.SetFloat("compteur", -0.1f);
                         }
+                        deadCount = MAXDEADCOUNT;
+                        cameradeath.SetFloat("compteur", -0.1f);
+                        GetComponent<Animator>().SetFloat("CompteurMort", -0.1f);
+                        vignette.SetFloat("compteur", -0.1f);
                     }
+                }
             }
             else
             {
@@ -185,8 +189,8 @@ public class Controller : MonoBehaviour
                     text = lastText + field.text;
                     if (oldtext.Length < text.Length)
                     {
-                        if(text.Length <= nbchar)
-                        audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Typewiter/SFX_Key/SFX_Typewriter_Key_" + Controller.GetRandom(13)));
+                        if (text.Length <= nbchar)
+                            audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Typewiter/SFX_Key/SFX_Typewriter_Key_" + Controller.GetRandom(13)));
                     }
                 }
                 if (text.Length > nbchar)
@@ -210,10 +214,10 @@ public class Controller : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             deadAnim -= Time.deltaTime;
-            if(deadAnim < 0 && finishrequest)
+            if (deadAnim < 0 && finishrequest)
                 SceneManager.LoadScene(0);
         }
-        
+
 
 
     }
@@ -254,7 +258,7 @@ public class Controller : MonoBehaviour
 
     public string TwoChar(int value)
     {
-        string tochar = ""+ value;
+        string tochar = "" + value;
         if (value < 10) tochar = "0" + tochar;
         return tochar;
     }
