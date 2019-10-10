@@ -83,57 +83,14 @@ public class Controller : MonoBehaviour
             if (!write)
             {
                 field.DeactivateInputField();
-                if (progress > 0) progress -= Time.deltaTime;
-                //field.ActivateInputField();
-                move.x = Input.GetAxis("Horizontal");
-                if (move.x < 0)
-                {
-                    if(!GetComponent<Animator>().GetBool("Bloc"))
-                    audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_NoBack/SFX_NoBack_" + GetRandom(4)));
-                    GetComponent<Animator>().SetBool("Bloc", true);
-                    
-                }
-                else
-                {
-                    //move.y = Input.GetAxis("Vertical");
-                    move = move.normalized * speed;
-                    GetComponent<Animator>().SetBool("Write", false);
-                    GetComponent<Animator>().SetFloat("Move", move.magnitude);
-                    GetComponent<Animator>().SetBool("Bloc", false);
-
-                    if(move.x > 0)
-                        timebetweenstep += Time.deltaTime*2;
-                    if(timebetweenstep > 1)
-                    {
-                        timebetweenstep = 0;
-                        leftstep = !leftstep;
-
-                        audio.PlayOneShot((AudioClip)Resources.Load("Sound/Footsteps/FTS_Full/FTS_" + ((leftstep)? "Left_" : "Right_") + GetRandom(7)));
-                    }
-
-
-                    if (move.x > 0)
-                    {
-                        
-                        nbchar += charCurve.Evaluate((transform.position.x - originalpos) / 120) * Time.deltaTime;
-                    }
-
-                    Vector3 campos = Camera.main.transform.parent.position;
-                    campos.x = transform.position.x + 2.5f;
-                    campos.y = walkheight;
-                    Camera.main.transform.parent.transform.position = campos;
-                    GetComponent<Rigidbody2D>().velocity = move;
-
-                    if (Input.GetKeyDown(KeyCode.Tab))
-                    {
-                        audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakeTypewriter/SFX_TakeTypewriter_"+Controller.GetRandom(4)));
-                        write = true;
-                        cameradeath.enabled = false;
-
-                    }
-
+                
                     if (Input.GetKey(KeyCode.M))
                     {
+                        GetComponent<Animator>().SetBool("Write", false);
+                        GetComponent<Animator>().SetFloat("Move", 0);
+                        GetComponent<Animator>().SetBool("Bloc", false);
+                        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                        if (deadCount == MAXDEADCOUNT) audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Die/SFX_Die"));
                         deadCount -= Time.deltaTime;
                         cameradeath.SetFloat("compteur", MAXDEADCOUNT - deadCount);
                         cameradeath.enabled = true;
@@ -143,12 +100,62 @@ public class Controller : MonoBehaviour
                     }
                     else
                     {
-                        deadCount = MAXDEADCOUNT;
-                        cameradeath.SetFloat("compteur", -0.1f);
-                        GetComponent<Animator>().SetFloat("CompteurMort", -0.1f);
-                        vignette.SetFloat("compteur", -0.1f);
+                        if (progress > 0) progress -= Time.deltaTime;
+                        //field.ActivateInputField();
+                        move.x = Input.GetAxis("Horizontal");
+                        if (move.x < 0)
+                        {
+                            if (!GetComponent<Animator>().GetBool("Bloc"))
+                                audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_NoBack/SFX_NoBack_" + GetRandom(4)));
+                            GetComponent<Animator>().SetBool("Bloc", true);
+
+                        }
+                        else
+                        {
+                            //move.y = Input.GetAxis("Vertical");
+                            move = move.normalized * speed;
+                            GetComponent<Animator>().SetBool("Write", false);
+                            GetComponent<Animator>().SetFloat("Move", move.magnitude);
+                            GetComponent<Animator>().SetBool("Bloc", false);
+
+                            if (move.x > 0)
+                                timebetweenstep += Time.deltaTime * 2;
+                            if (timebetweenstep > 1)
+                            {
+                                timebetweenstep = 0;
+                                leftstep = !leftstep;
+
+                                audio.PlayOneShot((AudioClip)Resources.Load("Sound/Footsteps/FTS_Full/FTS_" + ((leftstep) ? "Left_" : "Right_") + GetRandom(7)));
+                            }
+
+
+                            if (move.x > 0)
+                            {
+
+                                nbchar += charCurve.Evaluate((transform.position.x - originalpos) / 120) * Time.deltaTime;
+                            }
+
+                            Vector3 campos = Camera.main.transform.parent.position;
+                            campos.x = transform.position.x + 2.5f;
+                            campos.y = walkheight;
+                            Camera.main.transform.parent.transform.position = campos;
+                            GetComponent<Rigidbody2D>().velocity = move;
+
+                            if (Input.GetKeyDown(KeyCode.Tab) && cameradeath.GetCurrentAnimatorStateInfo(0).IsName("Camera"))
+                            {
+                                
+                                audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakeTypewriter/SFX_TakeTypewriter_" + Controller.GetRandom(4)));
+                                write = true;
+                                cameradeath.enabled = false;
+
+                            }
+                            if (deadCount < MAXDEADCOUNT) audio.Stop();
+                            deadCount = MAXDEADCOUNT;
+                            cameradeath.SetFloat("compteur", -0.1f);
+                            GetComponent<Animator>().SetFloat("CompteurMort", -0.1f);
+                            vignette.SetFloat("compteur", -0.1f);
+                        }
                     }
-                }
             }
             else
             {
