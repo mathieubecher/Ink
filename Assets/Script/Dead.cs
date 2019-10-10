@@ -10,9 +10,13 @@ public class Dead : MonoBehaviour
     public string text;
     public bool active = false;
     [SerializeField] private List<Sprite> listdeadSprite;
+    private AudioSource audio1;
+    private AudioSource audio2;
     // Start is called before the first frame update
     void Start()
     {
+        audio1 = GetComponents<AudioSource>()[0];
+        audio2 = GetComponents<AudioSource>()[1];
         if (deadTime > 60 * 24) Destroy(this.gameObject);
         
         int id = listdeadSprite.Count - 1;
@@ -26,6 +30,9 @@ public class Dead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        audio1.volume = 1 - Mathf.Abs(transform.position.x - Camera.main.transform.position.x)/5;
+        audio2.volume = 1 - Mathf.Abs(transform.position.x - Camera.main.transform.position.x)/5;
+        //if(audio1.volume > 0) Debug.Log(audio1.volume);
         deadTime += Time.deltaTime/(float)(60);
         if(cursor != null)
         {
