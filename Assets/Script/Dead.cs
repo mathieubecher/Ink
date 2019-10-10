@@ -39,9 +39,7 @@ public class Dead : MonoBehaviour
             {
                 if (!active)
                 {
-                    GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakePaper/SFX_TakePaper_" + Controller.GetRandom(10)));
-                    Debug.Log("Sound/SFX/SFX_TakePaper/SFX_TakePaper_" + Controller.GetRandom(10));
-                    currentdead = this;
+                   currentdead = this;
                     GameObject g = Instantiate((GameObject)Resources.Load("Paper"),Vector3.zero,Quaternion.identity);
                     (g.GetComponent(typeof(DeadPaper)) as DeadPaper).dead = this;
                     active = true;
