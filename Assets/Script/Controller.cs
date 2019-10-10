@@ -37,8 +37,9 @@ public class Controller : MonoBehaviour
 
     private float deadCount;
     private float MAXDEADCOUNT = 5;
-    public float deadAnim;
-    public bool dead = false;
+    private float deadAnim = 1;
+    private bool finishrequest = false;
+    private bool dead = false;
 
     private AudioSource audio;
 
@@ -68,7 +69,7 @@ public class Controller : MonoBehaviour
     }
     public void Move()
     {
-        if (!dead)
+        if (!finishrequest)
         {
             if (!write)
             {
@@ -171,7 +172,7 @@ public class Controller : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             deadAnim -= Time.deltaTime;
-            if(deadAnim < 0)
+            if(deadAnim < 0 && finishrequest)
                 SceneManager.LoadScene(0);
         }
         
@@ -182,8 +183,10 @@ public class Controller : MonoBehaviour
     public IEnumerator Exit()
     {
         dead = true;
-        if (text != "") { 
+        if (text != "") {
+            
             string textParse = text.Replace('"',' ');
+            Debug.Log(textParse);
             string time = TwoChar(System.DateTime.Now.Day) + "/" + TwoChar(System.DateTime.Now.Month) + "/" + System.DateTime.Now.Year + " " + TwoChar(System.DateTime.Now.Hour) + ":" + TwoChar(System.DateTime.Now.Minute) + ":" + TwoChar(System.DateTime.Now.Second);
 
             WWWForm form = new WWWForm();
@@ -194,8 +197,9 @@ public class Controller : MonoBehaviour
             UnityWebRequest www = UnityWebRequest.Post("http://portfoliobecher.com/Ink/SetDead.php",form);
             yield return www.SendWebRequest();
         }
-
         deadAnim = 2;
+       
+        finishrequest = true;
         GetComponent<Animator>().SetBool("Dead", true);
     }
     
