@@ -30,8 +30,8 @@ public class Dead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        audio1.volume = 1 - Mathf.Abs(transform.position.x - Camera.main.transform.position.x)/5;
-        audio2.volume = 1 - Mathf.Abs(transform.position.x - Camera.main.transform.position.x)/5;
+        audio1.volume = 0.7f * (1 - Mathf.Abs(transform.position.x - Camera.main.transform.position.x)/10);
+        audio2.volume = 1 - Mathf.Abs(transform.position.x - Camera.main.transform.position.x)/10;
         //if(audio1.volume > 0) Debug.Log(audio1.volume);
         deadTime += Time.deltaTime/(float)(60);
         if(cursor != null)
