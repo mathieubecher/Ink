@@ -128,12 +128,15 @@ public class Controller : MonoBehaviour
                     {
                         audio.PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakeTypewriter/SFX_TakeTypewriter_"+Controller.GetRandom(4)));
                         write = true;
+                        cameradeath.enabled = false;
+
                     }
 
                     if (Input.GetKey(KeyCode.M))
                     {
                         deadCount -= Time.deltaTime;
                         cameradeath.SetFloat("compteur", MAXDEADCOUNT - deadCount);
+                        cameradeath.enabled = true;
                         GetComponent<Animator>().SetFloat("CompteurMort", MAXDEADCOUNT - deadCount);
                         vignette.SetFloat("compteur", MAXDEADCOUNT - deadCount);
                         if (deadCount < 0 && !dead) StartCoroutine(Exit());
@@ -167,6 +170,7 @@ public class Controller : MonoBehaviour
                     lastText = text;
                     field.text = "";
                     write = false;
+
                 }
                 else
                 {
