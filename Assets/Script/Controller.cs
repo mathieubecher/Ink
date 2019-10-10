@@ -27,6 +27,8 @@ public class Controller : MonoBehaviour
     public float nbchar = 3;
     public TextMeshProUGUI textchar;
     public float originalpos;
+    private float deadCount;
+    private float MAXDEADCOUNT = 5;
 
 
     public float deadprogress;
@@ -35,6 +37,7 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        deadCount = MAXDEADCOUNT;
         walkheight = Camera.main.transform.parent.transform.position.y;
         originalpos = transform.position.x;
         originmachinheight = machin.transform.position.y;
@@ -78,11 +81,16 @@ public class Controller : MonoBehaviour
                     Camera.main.transform.parent.transform.position = campos;
                     GetComponent<Rigidbody2D>().velocity = move;
 
-                    if (Input.GetKeyDown(KeyCode.Space)) write = true;
+                    if (Input.GetKeyDown(KeyCode.Tab)) write = true;
 
-                    if (Input.GetKeyDown(KeyCode.Escape))
+                    if (Input.GetKey(KeyCode.M))
                     {
-                        StartCoroutine(Exit());
+                        deadCount -= Time.deltaTime;
+                        if(deadCount < 0 && !dead) StartCoroutine(Exit());
+                    }
+                    else
+                    {
+                        deadCount = MAXDEADCOUNT;
                     }
                 }
             }
@@ -97,6 +105,13 @@ public class Controller : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     lastText = text;
+                    field.text = "";
+                    write = false;
+                }
+                else if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    lastText = text;
+                    field.text = "";
                     write = false;
                 }
                 else
@@ -133,13 +148,14 @@ public class Controller : MonoBehaviour
     
     public IEnumerator Exit()
     {
-        if(text != "") { 
+        dead = true;
+        if (text != "") { 
             string textParse = text.Replace('"',' ');
             string time = TwoChar(System.DateTime.Now.Day) + "/" + TwoChar(System.DateTime.Now.Month) + "/" + System.DateTime.Now.Year + " " + TwoChar(System.DateTime.Now.Hour)+ ":" + TwoChar(System.DateTime.Now.Minute) + ":" + TwoChar(System.DateTime.Now.Second);
             UnityWebRequest www = UnityWebRequest.Get("http://portfoliobecher.com/Ink/SetDead.php?time=" + time + "&position=" + transform.position.x + "&text=" + textParse);
             yield return www.SendWebRequest();
         }
-        dead = true;
+        
         deadprogress = 2;
         GetComponent<Animator>().SetBool("Dead", true);
     }
