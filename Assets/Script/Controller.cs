@@ -210,30 +210,41 @@ public class Controller : MonoBehaviour
 
 
     }
-    
+
     public IEnumerator Exit()
     {
+        Debug.Log("Begin Dead");
         dead = true;
-        if (text != "") {
-            
-            string textParse = text.Replace('"',' ');
-            Debug.Log(textParse);
+        if (text != "")
+        {
+
+            string textParse = text.Replace('"', ' ');
             string time = TwoChar(System.DateTime.Now.Day) + "/" + TwoChar(System.DateTime.Now.Month) + "/" + System.DateTime.Now.Year + " " + TwoChar(System.DateTime.Now.Hour) + ":" + TwoChar(System.DateTime.Now.Minute) + ":" + TwoChar(System.DateTime.Now.Second);
 
             WWWForm form = new WWWForm();
-            form.AddField("position",""+transform.position.x);
+            form.AddField("position", "" + transform.position.x);
             form.AddField("text", textParse);
             form.AddField("time", time);
 
-            UnityWebRequest www = UnityWebRequest.Post("http://portfoliobecher.com/Ink/SetDead.php",form);
+            Debug.Log("Begin Save");
+            Debug.Log(textParse);
+            UnityWebRequest www = UnityWebRequest.Post("http://portfoliobecher.com/Ink/SetDead.php", form);
+
             yield return www.SendWebRequest();
+            while (!www.isDone)
+            {
+                Debug.Log("j'attend");
+            }
+            Debug.Log(www.downloadHandler.text);
+            Debug.Log("Save OK");
+
         }
         deadAnim = 2;
-       
+
         finishrequest = true;
         GetComponent<Animator>().SetBool("Dead", true);
     }
-    
+
     public string TwoChar(int value)
     {
         string tochar = ""+ value;
