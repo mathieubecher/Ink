@@ -44,6 +44,7 @@ public class Controller : MonoBehaviour
     private bool dead = false;
 
     public Animator cameradeath;
+    public Animator vignette;
 
     private AudioSource audio;
 
@@ -130,6 +131,7 @@ public class Controller : MonoBehaviour
                         deadCount -= Time.deltaTime;
                         cameradeath.SetFloat("compteur", MAXDEADCOUNT - deadCount);
                         GetComponent<Animator>().SetFloat("CompteurMort", MAXDEADCOUNT - deadCount);
+                        vignette.SetFloat("compteur", MAXDEADCOUNT - deadCount);
                         if (deadCount < 0 && !dead) StartCoroutine(Exit());
                     }
                     else
@@ -137,6 +139,7 @@ public class Controller : MonoBehaviour
                         deadCount = MAXDEADCOUNT;
                         cameradeath.SetFloat("compteur", -0.1f);
                         GetComponent<Animator>().SetFloat("CompteurMort", -0.1f);
+                        vignette.SetFloat("compteur", -0.1f);
                     }
                 }
             }
