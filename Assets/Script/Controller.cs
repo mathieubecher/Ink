@@ -25,8 +25,10 @@ public class Controller : MonoBehaviour
     private float writeheight = -4;
     private string lastText = "";
     public float nbchar = 3;
+    public int nbcharrestant;
     public TextMeshProUGUI textchar;
     public float originalpos;
+    public SpriteRenderer ombre;
     private float deadCount;
     private float MAXDEADCOUNT = 5;
 
@@ -47,8 +49,8 @@ public class Controller : MonoBehaviour
     void Update()
     {
         Move();
-
-        textchar.SetText((Mathf.Floor(nbchar) - text.Length).ToString());
+        nbcharrestant = Mathf.RoundToInt(Mathf.Floor(nbchar) - text.Length);
+        textchar.SetText(nbcharrestant.ToString());
     }
     public void Move()
     {
