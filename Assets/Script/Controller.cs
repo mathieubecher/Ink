@@ -29,16 +29,21 @@ public class Controller : MonoBehaviour
     private string lastText = "";
     public bool write = false;
     public float nbchar = 3;
+    public int nbcharrestant;
     public TextMeshProUGUI textchar;
     public float originalpos;
-
+    public SpriteRenderer perso;
+    public SpriteMask mask;
+    public SpriteRenderer ombre;
     private float walkheight;
     private float writeheight = -4;
-
-    private float deadCount;
+    public float deadCount;
     private float MAXDEADCOUNT = 5;
-    public float deadAnim;
-    public bool dead = false;
+    private float deadAnim = 1;
+    private bool finishrequest = false;
+    private bool dead = false;
+
+    public Animator cameradeath;
 
     private AudioSource audio;
 
@@ -63,12 +68,16 @@ public class Controller : MonoBehaviour
     void Update()
     {
         Move();
-
-        textchar.SetText((Mathf.Floor(nbchar) - text.Length).ToString());
+        nbcharrestant = Mathf.RoundToInt(Mathf.Floor(nbchar) - text.Length);
+        textchar.SetText(nbcharrestant.ToString());
+        ombre.color = new Color(1, 1, 1, (nbcharrestant / 250.0f)/2);
+        mask.sprite = perso.sprite;
     }
+    
+
     public void Move()
     {
-        if (!dead)
+        if (!finishrequest)
         {
             if (!write)
             {
@@ -119,11 +128,15 @@ public class Controller : MonoBehaviour
                     if (Input.GetKey(KeyCode.M))
                     {
                         deadCount -= Time.deltaTime;
-                        if(deadCount < 0 && !dead) StartCoroutine(Exit());
+                        cameradeath.SetFloat("compteur", MAXDEADCOUNT - deadCount);
+                        GetComponent<Animator>().SetFloat("CompteurMort", MAXDEADCOUNT - deadCount);
+                        if (deadCount < 0 && !dead) StartCoroutine(Exit());
                     }
                     else
                     {
                         deadCount = MAXDEADCOUNT;
+                        cameradeath.SetFloat("compteur", -0.1f);
+                        GetComponent<Animator>().SetFloat("CompteurMort", -0.1f);
                     }
                 }
             }
@@ -171,7 +184,7 @@ public class Controller : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             deadAnim -= Time.deltaTime;
-            if(deadAnim < 0)
+            if(deadAnim < 0 && finishrequest)
                 SceneManager.LoadScene(0);
         }
         
@@ -182,8 +195,10 @@ public class Controller : MonoBehaviour
     public IEnumerator Exit()
     {
         dead = true;
-        if (text != "") { 
+        if (text != "") {
+            
             string textParse = text.Replace('"',' ');
+            Debug.Log(textParse);
             string time = TwoChar(System.DateTime.Now.Day) + "/" + TwoChar(System.DateTime.Now.Month) + "/" + System.DateTime.Now.Year + " " + TwoChar(System.DateTime.Now.Hour) + ":" + TwoChar(System.DateTime.Now.Minute) + ":" + TwoChar(System.DateTime.Now.Second);
 
             WWWForm form = new WWWForm();
@@ -194,8 +209,9 @@ public class Controller : MonoBehaviour
             UnityWebRequest www = UnityWebRequest.Post("http://portfoliobecher.com/Ink/SetDead.php",form);
             yield return www.SendWebRequest();
         }
-
         deadAnim = 2;
+       
+        finishrequest = true;
         GetComponent<Animator>().SetBool("Dead", true);
     }
     
