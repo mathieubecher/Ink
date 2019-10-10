@@ -15,9 +15,11 @@ public class Dead : MonoBehaviour
     {
         if (deadTime > 60 * 24) Destroy(this.gameObject);
         
-        int id = listdeadSprite.Count - 1; 
+        int id = listdeadSprite.Count - 1;
+        
         if ((int)Mathf.Floor(listdeadSprite.Count * deadTime / (60 * 12)) < listdeadSprite.Count)
             id = (int)Mathf.Floor(listdeadSprite.Count * deadTime / (60 * 12));
+        if (id < 0) id = 0;
         GetComponent<SpriteRenderer>().sprite = listdeadSprite[id];
     }
 
