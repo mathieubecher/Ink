@@ -12,9 +12,11 @@ public class DeadPaper : MonoBehaviour
     private float spawnProgress = 0;
     private float originposx;
     private bool active = true;
+
     // Start is called before the first frame update
     void Start()
     {
+        dead.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakePaper/SFX_TakePaper_" + Controller.GetRandom(10)));
         originposx = dead.transform.position.x - Camera.main.transform.position.x;
         text.text = dead.text.Replace('#','\n');
         transform.position = new Vector3(0, -20, 0);
@@ -39,6 +41,7 @@ public class DeadPaper : MonoBehaviour
         }
         else if ((!active || !dead.active) && spawnProgress > 0)
         {
+            if(active)dead.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_PutPaperBack/SFX_PutPaperBack_" + Controller.GetRandom(4)));
             active = false;
             text.sortingOrder = -3;
             page.sortingOrder = -4;
