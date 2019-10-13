@@ -21,7 +21,7 @@ public class WritePaper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string[] split = (player.lastText + player.field.text).Split('\n');
+        string[] split = (player.   text).Split('\n');
         string splittext = "";
 
         for (int i = split.Length - 1; i >= 0; --i)

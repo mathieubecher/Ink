@@ -16,7 +16,7 @@ public class DeadPaper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dead.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakePaper/SFX_TakePaper_" + Controller.GetRandom(10)));
+        GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_TakePaper/SFX_TakePaper_" + Controller.GetRandom(10)));
         originposx = dead.transform.position.x - Camera.main.transform.position.x;
         text.text = dead.text.Replace('#','\n');
         transform.position = new Vector3(0, -20, 0);
@@ -28,15 +28,7 @@ public class DeadPaper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!dead.active) Destroy(this.gameObject);
-
-        //float axes = Mathf.Lerp(dead.transform.position.x,Camera.main.transform.position.x, 0.2f);
-
-
         float axes = Camera.main.transform.position.x;
-
-        
-
         Vector3 y = new Vector3(0,transform.position.y,0);
         if (spawnProgress < 1f && dead.active && active)
         {
@@ -45,7 +37,7 @@ public class DeadPaper : MonoBehaviour
         }
         else if ((!active || !dead.active) && spawnProgress > 0)
         {
-            if(active)dead.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_PutPaperBack/SFX_PutPaperBack_" + Controller.GetRandom(4)));
+            if(active)GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_PutPaperBack/SFX_PutPaperBack_" + Controller.GetRandom(4)));
             active = false;
             text.sortingOrder = -3;
             page.sortingOrder = -4;
@@ -55,25 +47,6 @@ public class DeadPaper : MonoBehaviour
             y = (new Vector3(0, curve.Evaluate(spawnProgress) * 6 - 15 + beginheight, 0));
         }
         else if (!active || !dead.active) Destroy(this.gameObject);
-
         transform.position = new Vector3(axes, 0, 0) + y ;
-
-        /*
-
-        float axesy = Input.mousePosition.y;
-        float size = Screen.height;
-        float textProgress = 1- axesy / size;
-        if (textProgress >= 1) textProgress = 1;
-        Debug.Log(textProgress);
-        int nbreturn = dead.text.Split('\n').Length;
-        string newtext = "";
-        int i = nbreturn-1;
-        while(i>=0 && i > textProgress * nbreturn)
-        {
-            newtext = newtext + dead.text.Split('\n')[i];
-            --i;
-        }
-        text.text = newtext;
-        */
     }
 }

@@ -18,7 +18,7 @@ public class Die : State
         player.GetComponent<Animator>().SetBool("Bloc", false);
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         player.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/SFX/SFX_Die/SFX_Die"));
-        player.cameradeath.enabled = true;  
+        Camera.main.GetComponent<Animator>().enabled = true;  
     }
 
     public override void Update()
@@ -33,14 +33,14 @@ public class Die : State
         if (cancel)
         {
             count += MAXDEADCOUNT;
-            if (player.cameradeath.GetCurrentAnimatorStateInfo(0).IsName("Camera"))
+            if (Camera.main.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Camera"))
             {
-                player.cameradeath.enabled = false;
+                Camera.main.GetComponent<Animator>().enabled = false;
                 player.state = new State(player);
             }
         }
 
-        player.cameradeath.SetFloat("compteur", MAXDEADCOUNT - count);
+        Camera.main.GetComponent<Animator>().SetFloat("compteur", MAXDEADCOUNT - count);
         player.vignette.SetFloat("compteur", MAXDEADCOUNT - count);
         player.GetComponent<Animator>().SetFloat("CompteurMort", MAXDEADCOUNT - count);
         

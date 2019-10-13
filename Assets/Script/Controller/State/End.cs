@@ -8,7 +8,7 @@ public class End : State
     private float count = 2;
     public End(Controller player): base(player)
     {
-        player.cameradeath.SetFloat("compteur", 0);
+        Camera.main.GetComponent<Animator>().SetFloat("compteur", 0);
         player.vignette.SetFloat("compteur", 0);
         player.GetComponent<Animator>().SetFloat("CompteurMort", 0);
     }

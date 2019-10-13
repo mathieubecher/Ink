@@ -12,7 +12,7 @@ public class State
     {
         this.player = player;
         player.GetComponent<Animator>().SetBool("Write", false);
-        player.cameradeath.SetFloat("compteur", -0.1f);
+        Camera.main.GetComponent<Animator>().SetFloat("compteur", -0.1f);
         player.GetComponent<Animator>().SetFloat("CompteurMort", -0.1f);
         player.vignette.SetFloat("compteur", -0.1f);
     }
@@ -51,7 +51,7 @@ public class State
                     player.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Sound/Footsteps/FTS_Full/FTS_" + ((leftstep) ? "Left_" : "Right_") + Controller.GetRandom(7)));
                 }
                 // Calcul des caractères du joueurs
-                player.nbchar += player.charCurve.Evaluate((player.transform.position.x - player.originalpos) / 120) * Time.deltaTime;
+                player.nbChar.number += player.nbChar.charCurve.Evaluate((player.transform.position.x - player.nbChar.originalpos) / 120) * Time.deltaTime;
             }
             // Déplacement
             player.GetComponent<Rigidbody2D>().velocity = move;
