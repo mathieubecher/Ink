@@ -20,9 +20,12 @@ public class Controller : MonoBehaviour
 
     // Courbe de progression des caractères
     public NbChar nbChar;
+
+    // Ombre lié au nombre de caractère
     public SpriteMask mask;
+
+    // Animation mort
     public SpriteRenderer ombre;
-    
     public Animator vignette;
 
 
