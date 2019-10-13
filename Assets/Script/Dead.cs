@@ -17,12 +17,12 @@ public class Dead : MonoBehaviour
     {
         audio1 = GetComponents<AudioSource>()[0];
         audio2 = GetComponents<AudioSource>()[1];
-        if (deadTime > 60 * 24) Destroy(this.gameObject);
+        if (deadTime > 60 * 48) Destroy(this.gameObject);
         
         int id = listdeadSprite.Count - 1;
         
-        if ((int)Mathf.Floor(listdeadSprite.Count * deadTime / (60 * 12)) < listdeadSprite.Count)
-            id = (int)Mathf.Floor(listdeadSprite.Count * deadTime / (60 * 12));
+        if ((int)Mathf.Floor(listdeadSprite.Count * deadTime / (60 * 48)) < listdeadSprite.Count)
+            id = (int)Mathf.Floor(listdeadSprite.Count * deadTime / (60 * 48));
         if (id < 0) id = 0;
         GetComponent<SpriteRenderer>().sprite = listdeadSprite[id];
     }

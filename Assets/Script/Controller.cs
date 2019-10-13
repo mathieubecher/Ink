@@ -8,13 +8,15 @@ using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
-    [SerializeField] private float speed = 1.5f;
+    public State state;
+
+    [SerializeField] public float speed = 1.5f;
     [SerializeField] private AnimationCurve curve;
-    [SerializeField] private AnimationCurve charCurve;
+    [SerializeField] public AnimationCurve charCurve;
     [SerializeField] private GameObject machin;
 
-    private float speedProgress = 0.3f;
-    private float progress = 0;
+    public float speedProgress = 0.3f;
+    public float progress = 0;
 
     private float machinheight = -5;
     private float originmachinheight;
@@ -26,7 +28,7 @@ public class Controller : MonoBehaviour
 
 
     public string text;
-    private string lastText = "";
+    public string lastText = "";
     public bool write = false;
     public float nbchar = 3;
     public int nbcharrestant;
@@ -35,7 +37,7 @@ public class Controller : MonoBehaviour
     public SpriteRenderer perso;
     public SpriteMask mask;
     public SpriteRenderer ombre;
-    private float walkheight;
+    public float walkheight;
     private float writeheight = -4;
     public float deadCount;
     private float MAXDEADCOUNT = 5;
@@ -51,6 +53,7 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        state = new State(this);
         deadCount = MAXDEADCOUNT;
         walkheight = Camera.main.transform.parent.transform.position.y;
         originalpos = transform.position.x;
@@ -68,16 +71,33 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (Input.GetKey(KeyCode.M)) state.DieInput();
+        if (Input.GetKeyDown(KeyCode.Tab)) state.WriteInput();
+
+        state.Update();
+        
+        Vector3 camera = Camera.main.transform.position;
+        camera.y = curve.Evaluate(progress * (1 / speedProgress)) * writeheight;
+
+        Vector3 machinpos = machin.transform.position;
+        machinpos.y = curve.Evaluate(1 - progress * (1 / speedProgress)) * machinheight + originmachinheight;
+
+        Camera.main.transform.position = camera;
+        machin.transform.position = machinpos;
+
+        UpdateOmbre();
+    }
+
+    public void UpdateOmbre()
+    {
         nbcharrestant = Mathf.RoundToInt(Mathf.Floor(nbchar) - text.Length);
         textchar.SetText(nbcharrestant.ToString());
         ombre.color = new Color(1, 1, 1, (nbcharrestant / 250.0f));
         mask.sprite = perso.sprite;
     }
-
-
     public void Move()
     {
+
         if (!finishrequest)
         {
             if (!write)
@@ -226,7 +246,6 @@ public class Controller : MonoBehaviour
 
     public IEnumerator Exit()
     {
-        Debug.Log("Begin Dead");
         dead = true;
         if (text != "")
         {
@@ -238,18 +257,14 @@ public class Controller : MonoBehaviour
             form.AddField("position", "" + transform.position.x);
             form.AddField("text", textParse);
             form.AddField("time", time);
-
-            Debug.Log("Begin Save");
-            Debug.Log(textParse);
             UnityWebRequest www = UnityWebRequest.Post("http://portfoliobecher.com/Ink/SetDead.php", form);
 
             yield return www.SendWebRequest();
             while (!www.isDone)
             {
-                Debug.Log("j'attend");
+
             }
             Debug.Log(www.downloadHandler.text);
-            Debug.Log("Save OK");
 
         }
         deadAnim = 2;

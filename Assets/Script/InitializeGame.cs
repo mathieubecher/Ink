@@ -7,9 +7,9 @@ using UnityEngine.Networking;
 [System.Serializable]
 public class DeadInfo
 {
-    public string dead;
     public float position;
     public string text;
+    public string dead;
 }
 [System.Serializable]
 public class ListaDead
@@ -47,9 +47,9 @@ public class InitializeGame : MonoBehaviour
         {
             GameObject deadObject = Instantiate(dead,new Vector3(deadinfo.position, (Random.value * (maxy -miny)) + miny, 0), Quaternion.identity);
             (deadObject.GetComponent(typeof(Dead)) as Dead).text = deadinfo.text;
-            
+            Debug.Log(deadinfo.dead);
             System.DateTime deaddate = System.DateTime.ParseExact(deadinfo.dead, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-           
+            //(deadObject.GetComponent(typeof(Dead)) as Dead).deadTime = (float)(System.DateTime.Now - deadinfo.dead).TotalMinutes;
 
             (deadObject.GetComponent(typeof(Dead)) as Dead).deadTime = (float)(System.DateTime.Now - deaddate).TotalMinutes;
         }
