@@ -10,55 +10,34 @@ public class Controller : MonoBehaviour
 {
     public State state;
 
+    // Vitesse de déplacement
     [SerializeField] public float speed = 1.5f;
-    [SerializeField] private AnimationCurve curve;
-    [SerializeField] public AnimationCurve charCurve;
-    [SerializeField] private GameObject machin;
 
-    public float speedProgress = 0.3f;
-    public float progress = 0;
-
-    private float machinheight = -5;
-    private float originmachinheight;
-
+    // Machine à écrire
+    [SerializeField] public Machine machine;
     public InputField field;
-    private Vector3 move;
-    private float timebetweenstep = 0;
-    private bool leftstep = false;
-
-
     public string text;
     public string lastText = "";
-    public bool write = false;
+
+    // Courbe de progression des caractères
+    [SerializeField] public AnimationCurve charCurve;
     public float nbchar = 3;
     public int nbcharrestant;
     public TextMeshProUGUI textchar;
     public float originalpos;
-    public SpriteRenderer perso;
     public SpriteMask mask;
     public SpriteRenderer ombre;
-    public float walkheight;
-    private float writeheight = -4;
-    public float deadCount;
-    private float MAXDEADCOUNT = 5;
-    private float deadAnim = 1;
-    private bool finishrequest = false;
-    private bool dead = false;
+
 
     public Animator cameradeath;
     public Animator vignette;
 
-    private AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
         state = new State(this);
-        deadCount = MAXDEADCOUNT;
-        walkheight = Camera.main.transform.parent.transform.position.y;
         originalpos = transform.position.x;
-        originmachinheight = machin.transform.position.y;
-        audio = GetComponent<AudioSource>();
 
     }
     public static string GetRandom(int maxvalue)
@@ -75,16 +54,6 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab)) state.WriteInput();
 
         state.Update();
-        
-        Vector3 camera = Camera.main.transform.position;
-        camera.y = curve.Evaluate(progress * (1 / speedProgress)) * writeheight;
-
-        Vector3 machinpos = machin.transform.position;
-        machinpos.y = curve.Evaluate(1 - progress * (1 / speedProgress)) * machinheight + originmachinheight;
-
-        Camera.main.transform.position = camera;
-        machin.transform.position = machinpos;
-
         UpdateOmbre();
     }
 
@@ -93,8 +62,9 @@ public class Controller : MonoBehaviour
         nbcharrestant = Mathf.RoundToInt(Mathf.Floor(nbchar) - text.Length);
         textchar.SetText(nbcharrestant.ToString());
         ombre.color = new Color(1, 1, 1, (nbcharrestant / 250.0f));
-        mask.sprite = perso.sprite;
+        mask.sprite = GetComponent<SpriteRenderer>().sprite;
     }
+    /*
     public void Move()
     {
 
@@ -279,5 +249,5 @@ public class Controller : MonoBehaviour
         if (value < 10) tochar = "0" + tochar;
         return tochar;
     }
-
+    */
 }

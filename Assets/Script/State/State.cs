@@ -18,8 +18,8 @@ public class State
     }
     public virtual void Update()
     {
-        if (player.progress > 0) player.progress -= Time.deltaTime;
-        else player.progress = 0;
+        if (player.machine.progress > 0) player.machine.progress -= Time.deltaTime;
+        else player.machine.progress = 0;
 
         // Si le joueur va en arrière
         if (Input.GetAxis("Horizontal") < 0)
@@ -72,7 +72,7 @@ public class State
     {
         Vector3 campos = Camera.main.transform.parent.position;
         campos.x = player.transform.position.x + 2.5f;
-        campos.y = player.walkheight;
+        campos.y = player.machine.walkheight;
         Camera.main.transform.parent.transform.position = campos;
     }
 }

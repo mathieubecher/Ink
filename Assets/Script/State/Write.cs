@@ -14,8 +14,8 @@ public class Write : State
     }
     public override void Update()
     {
-        if (player.progress < player.speedProgress) player.progress += Time.deltaTime;
-        else player.progress = player.speedProgress;
+        if (player.machine.progress < player.machine.speedProgress) player.machine.progress += Time.deltaTime;
+        else player.machine.progress = player.machine.speedProgress;
 
         string oldtext = player.text;
         // Mise à jour du texte

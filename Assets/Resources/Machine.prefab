@@ -343,6 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6067730725764613131}
   - component: {fileID: 6067730725764613130}
+  - component: {fileID: 6967663275902556692}
   m_Layer: 0
   m_Name: Machine
   m_TagString: Untagged
@@ -416,6 +417,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6967663275902556692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067730725764613124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa9b12cdb46abd4bb6a43e0c4af3a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  speedProgress: 0.3
+  progress: 0
+  walkheight: 0
 --- !u!1001 &2034550611060170371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -492,6 +532,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MaskInteraction
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843315416185453087, guid: d57f7f965e5e8764d8c6230b3cb63c04,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8843315416185453085, guid: d57f7f965e5e8764d8c6230b3cb63c04,
         type: 3}
